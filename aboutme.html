@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About Me | Faras</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;800&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="stylesheet" href="apapun.css" />
+
+    <!-- CSS Tambahan untuk efek Pop-up & Hover & Lanyard -->
+    <style>
+      /* Efek Teks Hover */
+      .efek-hover {
+        display: inline-block;
+        transition: all 0.3s ease-in-out;
+        cursor: pointer;
+        font-weight: 600; /* Agar kata yang bisa di-hover sedikit lebih tebal */
+      }
+
+      .efek-hover:hover {
+        color: #ff4757; /* Kamu bisa mengganti kode warna ini sesuai tema webmu */
+        transform: scale(1.2);
+        text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+      }
+
+      /* Container utama untuk area gambar lanyard */
+      .about-img-box {
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        padding-top: 40px; /* Memberi ruang untuk tali lanyard */
+        perspective: 1000px;
+      }
+
+      /* Pembungkus Lanyard yang akan kita animasikan */
+      .lanyard-wrapper {
+        position: relative;
+        /* Titik tumpu rotasi ada di atas tengah agar berayun seperti jam bandul */
+        transform-origin: top center;
+        cursor: grab;
+      }
+
+      /* Efek goyang saat di-hover (tersenggol kursor) */
+      .lanyard-wrapper:hover {
+        animation: swing 1s ease-in-out;
+      }
+
+      /* Desain Kartu ID */
+      .id-card {
+        width: 240px;
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: 15px;
+        padding: 15px;
+        text-align: center;
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+        position: relative;
+        z-index: 2;
+      }
+
+      /* Gambar di dalam Kartu ID */
+      .id-card img {
+        width: 100%;
+        height: 250px;
+        object-fit: cover;
+        border-radius: 10px;
+        border: 2px solid rgba(255, 255, 255, 0.5);
+        margin-top: 10px;
+      }
+
+      /* Jepitan/Lubang ID Card di bagian atas */
+      .id-clip {
+        width: 50px;
+        height: 15px;
+        background: #333;
+        border-radius: 10px;
+        margin: -30px auto 10px auto; /* Mengangkat klip ke atas kartu */
+        box-shadow:
+          inset 0 2px 5px rgba(255, 255, 255, 0.3),
+          0 2px 4px rgba(0, 0, 0, 0.5);
+        position: relative;
+      }
+
+      /* Lubang kecil di tengah klip */
+      .id-clip::before {
+        content: '';
+        display: block;
+        width: 25px;
+        height: 5px;
+        background: #111;
+        border-radius: 5px;
+        position: absolute;
+        top: 5px;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+
+      /* Tali Lanyard */
+      .lanyard-strap {
+        position: absolute;
+        top: -120px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 20px;
+        height: 120px;
+        background: linear-gradient(to bottom, #ff4757, #cf303f); /* Sesuaikan warna dengan tema */
+        z-index: 1;
+        box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.3);
+      }
+
+      /* Teks kecil di bawah foto ID */
+      .id-info {
+        margin-top: 15px;
+        font-family: 'Poppins', sans-serif;
+      }
+
+      .id-info h4 {
+        margin: 0;
+        font-size: 1.2rem;
+        color: #fff; /* Pastikan warnanya kontras dengan background website kamu */
+        letter-spacing: 1px;
+      }
+
+      .id-info p {
+        margin: 0;
+        font-size: 0.8rem;
+        color: #ff4757;
+        font-weight: 600;
+        text-transform: uppercase;
+      }
+
+      /* Keyframes untuk Animasi Berayun */
+      @keyframes swing {
+        0% {
+          transform: rotate(0deg);
+        }
+        20% {
+          transform: rotate(15deg);
+        }
+        40% {
+          transform: rotate(-10deg);
+        }
+        60% {
+          transform: rotate(5deg);
+        }
+        80% {
+          transform: rotate(-3deg);
+        }
+        100% {
+          transform: rotate(0deg);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="progress-bar"></div>
+
+    <header>
+      <div class="nav-container">
+        <div class="logo">FRSMODERN<span>.</span></div>
+        <nav>
+          <ul>
+            <li><a href="index.html" class="nav-link">Home</a></li>
+            <li><a href="about.html" class="nav-link active">About Me</a></li>
+            <li><a href="contact.html" class="nav-link">Contact</a></li>
+            <li><a href="others.html" class="nav-link">Others</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="scroll-reveal active">
+        <div class="about-grid">
+          <!-- Bagian Gambar yang diubah menjadi Lanyard -->
+          <div class="about-img-box">
+            <div class="lanyard-wrapper">
+              <!-- Tali Lanyard -->
+              <div class="lanyard-strap"></div>
+
+              <!-- Kartu ID -->
+              <div class="id-card">
+                <div class="id-clip"></div>
+                <!-- Lubang/Jepitan atas -->
+                <img src="https://media.formula1.com/image/upload/f_auto,c_limit,q_75,w_1320/content/dam/fom-website/drivers/2025Drivers/leclerc" alt="About Me Image" />
+                <div class="id-info">
+                  <h4>Faras</h4>
+                  <p>VIP Access</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Akhir dari bagian gambar Lanyard -->
+
+          <div class="about-text" style="text-align: left">
+            <h2>ABOUT <span class="gradient-text">ME</span></h2>
+            <p class="highlight">Funny & Handsome Student</p>
+
+            <!-- Kata-kata di bawah ini sudah dibungkus dengan efek-hover -->
+            <p>
+              Hi, I'm <span class="efek-hover">Faras</span>. I'm passionate about <span class="efek-hover">web development</span>, <span class="efek-hover">design</span>, and creating beautiful user experiences. I love
+              <span class="efek-hover">coding</span> and exploring new technologies.
+            </p>
+            <p>I am a student in <span class="efek-hover">Senior High School</span>, 18 years old. I have lived in <span class="efek-hover">Magelang</span> for 18 years.</p>
+
+            <h3 style="font-family: 'Orbitron'; margin-top: 20px; font-size: 1.2rem">Hobbies:</h3>
+            <div class="skills">
+              <span class="skill-tag"><i class="fas fa-basketball-ball"></i> Basketball</span>
+              <span class="skill-tag"><i class="fas fa-book"></i> Reading</span>
+              <span class="skill-tag"><i class="fas fa-film"></i> Movies</span>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>

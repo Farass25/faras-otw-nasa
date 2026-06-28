@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About Me | Faras</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;800&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="stylesheet" href="apapun.css" />
+
+    <!-- CSS Tambahan untuk efek Pop-up & Hover -->
+    <style>
+      .efek-hover {
+        display: inline-block;
+        transition: all 0.3s ease-in-out;
+        cursor: pointer;
+        font-weight: 600; /* Agar kata yang bisa di-hover sedikit lebih tebal */
+      }
+
+      .efek-hover:hover {
+        color: #ff4757; /* Kamu bisa mengganti kode warna ini sesuai tema webmu */
+        transform: scale(1.2);
+        text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+      }
+    </style>
+  </head>
+  <body>
+    <div id="progress-bar"></div>
+
+    <header>
+      <div class="nav-container">
+        <div class="logo">FRSMODERN<span>.</span></div>
+        <nav>
+          <ul>
+            <li><a href="index.html" class="nav-link">Home</a></li>
+            <li><a href="about.html" class="nav-link active">About Me</a></li>
+            <li><a href="contact.html" class="nav-link">Contact</a></li>
+            <li><a href="others.html" class="nav-link">Others</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="scroll-reveal active">
+        <div class="about-grid">
+          <div class="about-img-box">
+            <div class="img-wrapper glass-frame">
+              <img src="https://media.formula1.com/image/upload/f_auto,c_limit,q_75,w_1320/content/dam/fom-website/drivers/2025Drivers/leclerc" alt="About Me Image" />
+            </div>
+          </div>
+          <div class="about-text" style="text-align: left">
+            <h2>ABOUT <span class="gradient-text">ME</span></h2>
+            <p class="highlight">Funny & Handsome Student</p>
+
+            <!-- Kata-kata di bawah ini sudah dibungkus dengan efek-hover -->
+            <p>
+              Hi, I'm <span class="efek-hover">Faras</span>. I'm passionate about <span class="efek-hover">web development</span>, <span class="efek-hover">design</span>, and creating beautiful user experiences. I love
+              <span class="efek-hover">coding</span> and exploring new technologies.
+            </p>
+            <p>I am a student in <span class="efek-hover">Senior High School</span>, 18 years old. I have lived in <span class="efek-hover">Magelang</span> for 18 years.</p>
+
+            <h3 style="font-family: 'Orbitron'; margin-top: 20px; font-size: 1.2rem">Hobbies:</h3>
+
+            <div class="skills">
+              <span class="skill-tag"><i class="fas fa-basketball-ball"></i> Basketball</span>
+              <span class="skill-tag"><i class="fas fa-book"></i> Reading</span>
+              <span class="skill-tag"><i class="fas fa-film"></i> Movies</span>
+            </div>
+            <!-- Tambahkan ini di bawah bagian hobbies atau di akhir teks About Me -->
+            <div style="margin-top: 30px">
+              <a href="aboutme.html" class="btn-lanyard"> <i class="fas fa-id-badge"></i> Lihat ID Card Lanyard Saya </a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>

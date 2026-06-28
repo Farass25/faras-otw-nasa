@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Others | FRSMODERN</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;800&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="stylesheet" href="apapun.css" />
+    <style>
+      section {
+        padding: 100px 20px;
+        text-align: center;
+      }
+      .container {
+        max-width: 900px;
+        margin: 0 auto;
+      }
+      .grid-3 {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+        margin-top: 30px;
+      }
+      .card {
+        background: rgba(255, 255, 255, 0.05);
+        padding: 30px;
+        border-radius: 15px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+      }
+    </style>
+  </head>
+  <body>
+    <div id="progress-bar"></div>
+
+    <header>
+      <div class="nav-container">
+        <div class="logo">FRSMODERN<span>.</span></div>
+        <nav>
+          <ul>
+            <li><a href="index.html" class="nav-link">Home</a></li>
+            <li><a href="about.html" class="nav-link">About Me</a></li>
+            <li><a href="contact.html" class="nav-link">Contact</a></li>
+            <!-- Class active berada di Others -->
+            <li><a href="others.html" class="nav-link active">Others</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <!-- Section 1: Intro -->
+      <section class="scroll-reveal active">
+        <div class="container">
+          <h1 style="font-family: 'Orbitron'; font-size: 3rem">FUN <span class="gradient-text">STUFF</span></h1>
+          <p>Selamat datang di halaman ekstra! Di sini saya membagikan hal-hal lain di luar coding yang saya sukai.</p>
+        </div>
+      </section>
+
+      <!-- Section 2: Favorite Music/Movies -->
+      <section class="scroll-reveal">
+        <div class="container">
+          <h2>MY <span class="gradient-text">FAVORITES</span></h2>
+          <div class="grid-3">
+            <div class="card">
+              <i class="fas fa-headphones" style="font-size: 2rem; color: #ff4757; margin-bottom: 15px"></i>
+              <h3>Music</h3>
+              <p>Suka mendengarkan Pop, Indie, dan sedikit R&B saat sedang membuat kode (coding).</p>
+            </div>
+            <div class="card">
+              <i class="fas fa-film" style="font-size: 2rem; color: #ff4757; margin-bottom: 15px"></i>
+              <h3>Movies</h3>
+              <p>Penggemar berat film Sci-Fi, Action, dan dokumenter balapan Formula 1.</p>
+            </div>
+            <div class="card">
+              <i class="fas fa-gamepad" style="font-size: 2rem; color: #ff4757; margin-bottom: 15px"></i>
+              <h3>Games</h3>
+              <p>Sering bermain game simulasi olahraga dan game berbasis cerita di waktu luang.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 3: Future Goals -->
+      <section class="scroll-reveal">
+        <div class="container">
+          <h2>FUTURE <span class="gradient-text">GOALS</span></h2>
+          <p style="margin-top: 20px; line-height: 1.8">
+            Sebagai siswa SMA berumur 18 tahun, tujuan saya saat ini adalah memperdalam ilmu Computer Science dan UI/UX Design. Saya berharap bisa melanjutkan studi ke perguruan tinggi impian dan suatu saat nanti membangun startup teknologi
+            yang dapat memberikan dampak positif bagi banyak orang, khususnya di Magelang dan Indonesia.
+          </p>
+        </div>
+      </section>
+
+      <!-- Section 4: Footer-like Area to push scroll further -->
+      <section class="scroll-reveal" style="min-height: 40vh; display: flex; align-items: flex-end; padding-bottom: 50px">
+        <div class="container">
+          <p>&copy; 2026 FRSMODERN. All Rights Reserved. Built with <i class="fas fa-heart" style="color: #ff4757"></i> by Faras.</p>
+        </div>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>

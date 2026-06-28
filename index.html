@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home | FARAS</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;800&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="stylesheet" href="apapun.css" />
+    <style>
+      /* Tambahan gaya agar section penuh dan enak di-scroll */
+      section {
+        min-height: 80vh;
+        padding: 80px 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+      }
+      .content-box {
+        max-width: 800px;
+        margin: 20px auto;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="progress-bar"></div>
+
+    <header>
+      <div class="nav-container">
+        <div class="logo">FRSMODERN<span>.</span></div>
+        <nav>
+          <ul>
+            <!-- Class active berada di Home -->
+            <li><a href="index.html" class="nav-link active">Home</a></li>
+            <li><a href="about.html" class="nav-link">About Me</a></li>
+            <li><a href="contact.html" class="nav-link">Contact</a></li>
+            <li><a href="others.html" class="nav-link">Others</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <!-- Section 1: Hero / Welcome -->
+      <section class="scroll-reveal active">
+        <div class="content-box">
+          <h1 style="font-family: 'Orbitron'; font-size: 3rem">WELCOME TO <span class="gradient-text">FRSMODERN</span></h1>
+          <p class="highlight">Creativity Meets Technology</p>
+          <p>Halo! Selamat datang di dunia digital saya. Saya Faras, seorang pelajar yang antusias dalam membangun pengalaman web yang interaktif dan modern.</p>
+          <a href="about.html" class="btn-lanyard" style="margin-top: 20px; display: inline-block"><i class="fas fa-rocket"></i> Get to Know Me</a>
+        </div>
+      </section>
+
+      <!-- Section 2: My Skills -->
+      <section class="scroll-reveal">
+        <div class="content-box">
+          <h2>MY <span class="gradient-text">SKILLS</span></h2>
+          <p>Beberapa teknologi dan keahlian yang sedang saya pelajari dan kuasai saat ini.</p>
+          <div class="skills" style="justify-content: center; margin-top: 30px">
+            <span class="skill-tag"><i class="fab fa-html5"></i> HTML5</span>
+            <span class="skill-tag"><i class="fab fa-css3-alt"></i> CSS3</span>
+            <span class="skill-tag"><i class="fab fa-js"></i> JavaScript</span>
+            <span class="skill-tag"><i class="fas fa-paint-brush"></i> UI/UX Design</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 3: Latest Projects -->
+      <section class="scroll-reveal">
+        <div class="content-box">
+          <h2>FEATURED <span class="gradient-text">PROJECTS</span></h2>
+          <p>Membangun proyek adalah cara terbaik untuk belajar. Berikut adalah beberapa hal yang sedang saya kerjakan.</p>
+          <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; margin-top: 20px">
+            <div style="background: rgba(255, 255, 255, 0.1); padding: 20px; border-radius: 10px; width: 300px">
+              <h3>Personal Website</h3>
+              <p>Website portofolio modern dengan animasi smooth scroll dan UI menarik.</p>
+            </div>
+            <div style="background: rgba(255, 255, 255, 0.1); padding: 20px; border-radius: 10px; width: 300px">
+              <h3>Lanyard ID Card</h3>
+              <p>Eksperimen CSS murni untuk membuat animasi objek yang realistis.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
