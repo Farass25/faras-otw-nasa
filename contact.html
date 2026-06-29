@@ -1,60 +1,364 @@
 <!doctype html>
-<html lang="en">
+<html lang="id">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Contact | FRSMODERN</title>
+    <title>Contact | FARAS CANGGIH Ultimate</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;800&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-    <link rel="stylesheet" href="apapun.css" />
+
     <style>
-      section {
-        padding: 80px 20px;
+      /* --- BASE STYLE --- */
+      body {
+        margin: 0;
+        padding: 0;
+        background-color: #050508;
+        color: #ffffff;
+        font-family: 'Poppins', sans-serif;
+        overflow-x: hidden;
       }
-      .contact-container {
-        max-width: 600px;
-        margin: 0 auto;
-        text-align: center;
-      }
-      .form-group {
-        margin-bottom: 20px;
-        text-align: left;
-      }
-      input,
-      textarea {
+
+      header {
+        position: fixed;
+        top: 0;
         width: 100%;
-        padding: 12px;
-        border-radius: 8px;
-        border: none;
-        background: rgba(255, 255, 255, 0.1);
-        color: white;
-        font-family: 'Poppins';
+        background: rgba(5, 5, 8, 0.85);
+        backdrop-filter: blur(15px);
+        z-index: 1000;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
       }
-      .social-links a {
-        font-size: 2rem;
-        color: white;
-        margin: 0 15px;
+
+      .nav-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 30px;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .logo {
+        font-size: 1.5rem;
+        color: #fff;
+        text-decoration: none;
+      }
+      .logo span {
+        color: #00dfa2;
+      }
+
+      nav ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        gap: 20px;
+      }
+      nav a {
+        color: #fff;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 0.9rem;
         transition: 0.3s;
       }
-      .social-links a:hover {
-        color: #ff4757;
-        transform: translateY(-5px);
+      nav a:hover,
+      nav a.active {
+        color: #00dfa2;
+      }
+
+      /* --- EFEK VISUAL BACKGROUND & RADAR SIGNAL --- */
+      .bg-orb-1 {
+        position: fixed;
+        top: 20%;
+        left: -10%;
+        width: 50vw;
+        height: 50vw;
+        background: radial-gradient(circle, rgba(0, 223, 162, 0.1) 0%, rgba(0, 0, 0, 0) 70%);
+        z-index: -1;
+        pointer-events: none;
+      }
+
+      .side-decoration {
+        position: fixed;
+        left: 20px;
+        top: 50%;
+        transform: translateY(-50%) rotate(-90deg);
+        color: rgba(255, 255, 255, 0.03);
+        font-family: 'Orbitron';
+        font-size: 4rem;
+        font-weight: 800;
+        letter-spacing: 15px;
+        z-index: -2;
+        pointer-events: none;
+        white-space: nowrap;
+      }
+
+      @media (max-width: 768px) {
+        .side-decoration {
+          display: none;
+        }
+      }
+
+      /* Animasi Radar / Sinyal Memancar (Cool Effect) */
+      .radar-container {
+        position: fixed;
+        bottom: 50px;
+        right: 50px;
+        z-index: -1;
+        width: 100px;
+        height: 100px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        pointer-events: none;
+      }
+      .radar-ping {
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        background: rgba(0, 223, 162, 0.8);
+        border-radius: 50%;
+        animation: pingEffect 3s infinite cubic-bezier(0.215, 0.61, 0.355, 1);
+      }
+      .radar-core {
+        position: absolute;
+        width: 10px;
+        height: 10px;
+        background: #00dfa2;
+        border-radius: 50%;
+        box-shadow: 0 0 15px #00dfa2;
+      }
+      @keyframes pingEffect {
+        0% {
+          transform: scale(1);
+          opacity: 1;
+        }
+        100% {
+          transform: scale(10);
+          opacity: 0;
+        }
+      }
+
+      /* --- SECTION STYLE --- */
+      section {
+        min-height: 100vh;
+        padding: 120px 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        box-sizing: border-box;
+        position: relative;
+        border-bottom: 1px dashed rgba(255, 255, 255, 0.05);
+      }
+
+      .content-box {
+        max-width: 900px;
+        margin: 0 auto;
+        z-index: 2;
+      }
+      .content-box p {
+        font-size: 1.05rem;
+        line-height: 1.8;
+        margin-bottom: 20px;
+        color: #d1d1d1;
+      }
+
+      /* --- SCROLL REVEAL ENGINE --- */
+      .scroll-reveal {
+        opacity: 0;
+        transform: translateY(80px) scale(0.95);
+        transition: all 0.9s cubic-bezier(0.25, 1, 0.5, 1);
+      }
+      .scroll-reveal.active {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+
+      /* --- TEKS & ANIMASI KEYFRAMES --- */
+      .gradient-text {
+        background: linear-gradient(90deg, #00dfa2, #00f0ff, #7000ff);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        text-shadow: 0 0 30px rgba(0, 223, 162, 0.3);
+      }
+
+      .jumping-animation {
+        display: inline-block;
+        animation: jumpEffect 1.5s infinite ease-in-out;
+      }
+      @keyframes jumpEffect {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-20px);
+        }
+      }
+      .floating-animation {
+        animation: floatEffect 4s infinite ease-in-out;
+      }
+      @keyframes floatEffect {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-15px);
+        }
+      }
+      .pulse-animation {
+        animation: pulseEffect 2s infinite ease-in-out;
+      }
+      @keyframes pulseEffect {
+        0%,
+        100% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.1);
+        }
+      }
+
+      /* --- KARTU & TAG --- */
+      .grid-container {
+        display: flex;
+        gap: 25px;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin-top: 20px;
+      }
+      a.clickable-card {
+        text-decoration: none;
+        color: inherit;
+        display: block;
+      }
+
+      .card-box {
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        backdrop-filter: blur(10px);
+        padding: 35px 25px;
+        border-radius: 20px;
+        width: 320px;
+        box-sizing: border-box;
+        transition: all 0.4s ease;
+        position: relative;
+        overflow: hidden;
+      }
+      .card-box:hover {
+        transform: translateY(-10px);
+        background: rgba(255, 255, 255, 0.06);
+        border-color: #00dfa2;
+        box-shadow: 0 15px 35px rgba(0, 223, 162, 0.15);
+      }
+      .card-box h3 {
+        margin-top: 0;
+        font-family: 'Orbitron';
+        color: #00dfa2;
+      }
+      .card-box p {
+        font-size: 0.95rem;
+        margin-bottom: 15px;
+        line-height: 1.6;
+      }
+
+      /* --- DESAIN FORMULIR CYBERPUNK --- */
+      .contact-form {
+        background: rgba(0, 0, 0, 0.3);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        padding: 40px;
+        border-radius: 20px;
+        width: 100%;
+        max-width: 600px;
+        margin: 0 auto;
+        box-sizing: border-box;
+        backdrop-filter: blur(15px);
+        text-align: left;
+      }
+      .input-group {
+        margin-bottom: 25px;
+        position: relative;
+      }
+      .input-group label {
+        display: block;
+        margin-bottom: 8px;
+        font-size: 0.9rem;
+        color: #a1a1a1;
+        font-family: 'Orbitron';
+        letter-spacing: 1px;
+        transition: 0.3s;
+      }
+      .input-group input,
+      .input-group textarea {
+        width: 100%;
+        padding: 15px;
+        background: rgba(255, 255, 255, 0.02);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 10px;
+        color: #fff;
+        font-family: 'Poppins', sans-serif;
+        font-size: 1rem;
+        box-sizing: border-box;
+        transition: 0.3s;
+      }
+      .input-group textarea {
+        resize: vertical;
+        min-height: 150px;
+      }
+
+      /* Efek Neon saat input di-klik (Focus) */
+      .input-group input:focus,
+      .input-group textarea:focus {
+        outline: none;
+        border-color: #00dfa2;
+        background: rgba(0, 223, 162, 0.05);
+        box-shadow: 0 0 15px rgba(0, 223, 162, 0.3);
+      }
+      .input-group input:focus + label,
+      .input-group textarea:focus + label {
+        color: #00dfa2;
+      }
+
+      .submit-btn {
+        width: 100%;
+        padding: 15px;
+        background: linear-gradient(90deg, #00dfa2, #00f0ff);
+        border: none;
+        border-radius: 10px;
+        color: #050508;
+        font-family: 'Orbitron';
+        font-weight: 800;
+        font-size: 1.1rem;
+        cursor: pointer;
+        transition: 0.3s;
+        text-transform: uppercase;
+      }
+      .submit-btn:hover {
+        transform: scale(1.02);
+        box-shadow: 0 0 20px rgba(0, 223, 162, 0.5);
       }
     </style>
   </head>
   <body>
-    <div id="progress-bar"></div>
+    <div class="bg-orb-1"></div>
+    <div class="side-decoration">ESTABLISH CONNECTION</div>
+
+    <div class="radar-container">
+      <div class="radar-ping"></div>
+      <div class="radar-core"></div>
+    </div>
 
     <header>
       <div class="nav-container">
-        <div class="logo">FRSMODERN<span>.</span></div>
+        <div class="logo" style="font-family: 'Orbitron'; font-weight: 800">FARAS<span>.</span></div>
         <nav>
           <ul>
             <li><a href="index.html" class="nav-link">Home</a></li>
-            <li><a href="about.html" class="nav-link">About Me</a></li>
-            <!-- Class active berada di Contact -->
+            <li><a href="about.html" class="nav-link">About</a></li>
             <li><a href="contact.html" class="nav-link active">Contact</a></li>
             <li><a href="others.html" class="nav-link">Others</a></li>
           </ul>
@@ -63,54 +367,198 @@
     </header>
 
     <main>
-      <!-- Section 1: Intro Contact -->
-      <section class="scroll-reveal active">
-        <div class="contact-container">
-          <h1 style="font-family: 'Orbitron'; font-size: 2.5rem">GET IN <span class="gradient-text">TOUCH</span></h1>
-          <p>Punya ide proyek, pertanyaan, atau sekadar ingin menyapa? Jangan ragu untuk menghubungi saya!</p>
+      <section class="scroll-reveal">
+        <div class="content-box">
+          <div class="floating-animation" style="font-size: 5rem; color: #00dfa2; margin-bottom: 20px">
+            <i class="fas fa-satellite-dish"></i>
+          </div>
+          <h1 style="font-family: 'Orbitron'; font-size: 3.5rem; margin: 0 0 10px 0">INITIATE <br /><span class="gradient-text">COMMUNICATION</span></h1>
+          <p class="highlight" style="font-size: 1.4rem; color: #fff; font-weight: 600">Jembatan Menuju Kolaborasi Nyata</p>
+          <p>
+            Dunia digital yang luas ini tidak akan berarti apa-apa tanpa adanya koneksi antarmanusia. Halaman ini adalah portal komunikasi langsung menuju kotak masuk pribadi saya. Entah Anda adalah seorang perekrut, sesama developer, atau
+            peminat teknologi yang mencari rekan diskusi, Anda berada di tempat yang tepat.
+          </p>
         </div>
       </section>
 
-      <!-- Section 2: Contact Form -->
       <section class="scroll-reveal">
-        <div class="contact-container">
-          <form action="#">
-            <div class="form-group">
-              <label>Name</label>
-              <input type="text" placeholder="Masukkan nama kamu..." required />
+        <div class="content-box">
+          <div class="jumping-animation" style="font-size: 4rem; color: #ff007f"><i class="fas fa-handshake"></i></div>
+          <h2>MENGAPA <span class="gradient-text">BERKOLABORASI?</span></h2>
+          <p>
+            Saya meyakini bahwa inovasi besar jarang lahir dari pikiran satu orang yang terisolasi di dalam kamar. Kemajuan sejati di bidang web development maupun Internet of Things (IoT) selalu merupakan hasil dari pertukaran ide,
+            perdebatan teknis, dan penggabungan berbagai sudut pandang.
+          </p>
+          <p>
+            Jika Anda memiliki proyek elektronika yang terhenti, antarmuka website yang butuh perbaikan logika, atau gagasan start-up yang membutuhkan campur tangan teknis, jangan ragu untuk menyampaikannya. Saya selalu terbuka untuk
+            mengeksplorasi tantangan baru yang bisa memaksa saya keluar dari zona nyaman.
+          </p>
+        </div>
+      </section>
+
+      <section class="scroll-reveal">
+        <div class="content-box">
+          <h2>KIRIM <span class="gradient-text">TRANSMISI</span></h2>
+          <p>
+            Cara paling cepat dan formal untuk menghubungi saya adalah melalui formulir di bawah ini. Data Anda akan diproses secara aman menggunakan sistem <strong>Formspree</strong> dan langsung masuk ke email pribadi saya. Saya biasanya
+            merespons dalam waktu 1x24 jam.
+          </p>
+
+          <form class="contact-form" action="https://formspree.io/f/xdardpod" method="POST">
+            <div class="input-group">
+              <label for="name">ID PENGGUNA (NAMA)</label>
+              <input type="text" id="name" name="name" required placeholder="Masukkan nama Anda..." />
             </div>
-            <div class="form-group">
-              <label>Email</label>
-              <input type="email" placeholder="Masukkan email aktif..." required />
+            <div class="input-group">
+              <label for="email">ALAMAT EMAIL</label>
+              <input type="email" id="email" name="email" required placeholder="contoh@email.com..." />
             </div>
-            <div class="form-group">
-              <label>Message</label>
-              <textarea rows="5" placeholder="Tulis pesanmu di sini..." required></textarea>
+            <div class="input-group">
+              <label for="message">PESAN / INSTRUKSI</label>
+              <textarea id="message" name="message" required placeholder="Tuliskan detail proyek atau pesan Anda di sini..."></textarea>
             </div>
-            <button type="submit" class="btn-lanyard" style="width: 100%; border: none; cursor: pointer">Kirim Pesan <i class="fas fa-paper-plane"></i></button>
+            <button type="submit" class="submit-btn"><i class="fas fa-paper-plane"></i> KIRIM SEKARANG</button>
           </form>
         </div>
       </section>
 
-      <!-- Section 3: Social Media & Location -->
       <section class="scroll-reveal">
-        <div class="contact-container">
-          <h2>CONNECT WITH <span class="gradient-text">ME</span></h2>
-          <p>Atau temukan saya di platform sosial media berikut:</p>
-          <div class="social-links" style="margin-top: 30px">
-            <a href="#"><i class="fab fa-instagram"></i></a>
-            <a href="#"><i class="fab fa-github"></i></a>
-            <a href="#"><i class="fab fa-linkedin"></i></a>
-            <a href="#"><i class="fab fa-twitter"></i></a>
+        <div class="content-box">
+          <div class="pulse-animation" style="font-size: 4rem; color: #00f0ff"><i class="fas fa-bolt"></i></div>
+          <h2>JALUR <span class="gradient-text">CEPAT</span></h2>
+          <p>Lebih menyukai komunikasi langsung tanpa harus mengisi formulir panjang? Anda bisa menghubungi saya melalui saluran utama di bawah ini. Jika sifatnya mendesak, saya sangat merekomendasikan untuk menggunakan pesan WhatsApp.</p>
+
+          <div class="grid-container">
+            <a href="https://wa.me/6281413599360" target="_blank" class="clickable-card">
+              <div class="card-box" style="width: 280px">
+                <i class="fab fa-whatsapp" style="font-size: 3rem; color: #25d366; margin-bottom: 15px"></i>
+                <h3 style="color: #25d366">WhatsApp / Telp</h3>
+                <p style="font-size: 1.2rem; font-weight: bold">081413599360</p>
+              </div>
+            </a>
+
+            <a href="mailto:rizznihbos@gmail.com" class="clickable-card">
+              <div class="card-box" style="width: 280px">
+                <i class="fas fa-envelope-open-text" style="font-size: 3rem; color: #ea4335; margin-bottom: 15px"></i>
+                <h3 style="color: #ea4335">Alamat Email</h3>
+                <p style="font-size: 1rem; font-weight: bold; word-break: break-all">rizznihbos@gmail.com</p>
+              </div>
+            </a>
           </div>
-          <div style="margin-top: 40px">
-            <h3><i class="fas fa-map-marker-alt"></i> Location</h3>
-            <p>Magelang, Central Java, Indonesia.</p>
+        </div>
+      </section>
+
+      <section class="scroll-reveal">
+        <div class="content-box">
+          <h2>JARINGAN <span class="gradient-text">SOSIAL</span></h2>
+          <p>
+            Selain wadah profesional, saya juga aktif membagikan sekilas keseharian, eksperimen desain UI, hingga cuplikan proyek <i>behind the scenes</i> melalui platform media sosial. Mari berteman dan saling mengikuti perkembangan karya
+            masing-masing di dunia digital.
+          </p>
+
+          <div class="grid-container">
+            <a href="https://instagram.com/farsabydh" target="_blank" class="clickable-card">
+              <div class="card-box" style="width: 250px">
+                <i class="fab fa-instagram jumping-animation" style="font-size: 3rem; color: #e1306c; margin-bottom: 15px"></i>
+                <h3 style="color: #e1306c">Instagram</h3>
+                <p>@farsabydh</p>
+              </div>
+            </a>
+
+            <a href="https://www.tiktok.com/search?q=farras%20dribble" target="_blank" class="clickable-card">
+              <div class="card-box" style="width: 250px">
+                <i class="fab fa-tiktok pulse-animation" style="font-size: 3rem; color: #fff; margin-bottom: 15px"></i>
+                <h3 style="color: #fff">TikTok</h3>
+                <p>farras dribble</p>
+              </div>
+            </a>
           </div>
+        </div>
+      </section>
+
+      <section class="scroll-reveal">
+        <div class="content-box">
+          <div class="spinning-animation" style="font-size: 4rem; color: #ffaa00"><i class="fas fa-compass"></i></div>
+          <h2>TITIK <span class="gradient-text">KOORDINAT</span></h2>
+          <p>
+            Saya berbasis di <strong>Muntilan, Jawa Tengah, Indonesia</strong>. Bersekolah dan beraktivitas sehari-hari di sekitar lingkungan wilayah Magelang. Jika Anda kebetulan berada di radius wilayah yang sama, saya sangat terbuka
+            untuk bertemu langsung (offline) sembari berdiskusi santai di kedai kopi.
+          </p>
+          <p>Waktu operasional terbaik untuk menghubungi saya adalah pada sore hingga malam hari WIB (Waktu Indonesia Barat), mengingat pagi hingga siang hari biasanya merupakan jam sekolah aktif saya di MAN 1 Magelang.</p>
+        </div>
+      </section>
+
+      <section class="scroll-reveal">
+        <div class="content-box">
+          <h2>KRITERIA <span class="gradient-text">PROYEK</span></h2>
+          <p>Sebelum kita bekerja sama, penting untuk mengetahui apa yang menjadi fokus utama saya. Saat ini, saya memprioritaskan proyek yang berhubungan dengan:</p>
+          <ul style="text-align: left; max-width: 600px; margin: 0 auto; color: #d1d1d1; font-size: 1.05rem; line-height: 1.8">
+            <li><i class="fas fa-check" style="color: #00dfa2; margin-right: 10px"></i> Pengembangan Front-End Website (HTML, CSS, JS).</li>
+            <li><i class="fas fa-check" style="color: #00dfa2; margin-right: 10px"></i> Desain Prototipe UI/UX untuk aplikasi dan web.</li>
+            <li><i class="fas fa-check" style="color: #00dfa2; margin-right: 10px"></i> Pemrograman Mikrokontroler (Arduino / ESP32).</li>
+            <li><i class="fas fa-check" style="color: #00dfa2; margin-right: 10px"></i> Implementasi sistem Internet of Things (Smart Home/Garden).</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="scroll-reveal">
+        <div class="content-box">
+          <div class="floating-animation" style="font-size: 4rem; color: #7000ff"><i class="fas fa-question-circle"></i></div>
+          <h2>FREQUENTLY ASKED <span class="gradient-text">QUESTIONS</span></h2>
+          <p>
+            <strong>T: Apakah sistem portofolio web ini bisa dipesan/dibuatkan untuk saya?</strong><br />
+            J: Tentu saja. Jika Anda menyukai gaya desain "Cyberpunk / Modern Dark" seperti yang Anda lihat di website ini, kita bisa mendiskusikan konsepnya dan saya akan merancangnya khusus untuk identitas (branding) personal Anda.
+          </p>
+        </div>
+      </section>
+
+      <section class="scroll-reveal">
+        <div class="content-box">
+          <div class="jumping-animation" style="font-size: 4rem; color: #00f0ff"><i class="fas fa-laptop-code"></i></div>
+          <h2>FAQ <span class="gradient-text">LANJUTAN</span></h2>
+          <p>
+            <strong>T: Saya punya ide alat IoT tapi tidak mengerti coding, apakah bisa dibantu?</strong><br />
+            J: Itulah alasan saya di sini! Anda hanya perlu menyiapkan gambaran kasarnya (apa inputnya, apa outputnya), dan saya yang akan menangani perakitan komponen elektronika serta logika pemrogramannya.
+          </p>
+        </div>
+      </section>
+
+      <section class="scroll-reveal">
+        <div class="content-box">
+          <div class="pulse-animation" style="font-size: 4rem; color: #00dfa2; margin-bottom: 20px"><i class="fas fa-power-off"></i></div>
+          <h2 style="font-size: 3rem; margin-bottom: 10px">SISTEM <span class="gradient-text">SIAP</span></h2>
+          <p>
+            Terima kasih telah menjelajahi seluruh sudut digital FARAS CANGGIH Ultimate. Portofolio ini akan terus berkembang seiring dengan bertambahnya ilmu dan teknologi baru yang saya pelajari. Saya menantikan notifikasi pesan dari
+            Anda!
+          </p>
+          <a
+            href="others.html"
+            class="clickable-card"
+            style="display: inline-block; background: transparent; border: 2px solid #00dfa2; color: #00dfa2; padding: 10px 30px; border-radius: 50px; font-weight: 800; font-family: 'Orbitron'; margin-top: 20px; transition: 0.3s"
+          >
+            <i class="fas fa-arrow-up"></i> MENUJU OTHERS
+          </a>
         </div>
       </section>
     </main>
 
-    <script src="script.js"></script>
+    <script>
+      function reveal() {
+        var reveals = document.querySelectorAll('.scroll-reveal');
+        for (var i = 0; i < reveals.length; i++) {
+          var windowHeight = window.innerHeight;
+          var elementTop = reveals[i].getBoundingClientRect().top;
+          var elementVisible = 100;
+
+          if (elementTop < windowHeight - elementVisible) {
+            reveals[i].classList.add('active');
+          } else {
+            reveals[i].classList.remove('active');
+          }
+        }
+      }
+      window.addEventListener('scroll', reveal);
+      window.addEventListener('DOMContentLoaded', reveal);
+    </script>
   </body>
 </html>
