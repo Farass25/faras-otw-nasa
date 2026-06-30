@@ -3,222 +3,277 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>About Me | FARAS CANGGIH Ultimate</title>
+    <title>About Me | Faras Portfolio</title>
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;800&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Playfair+Display:ital,wght@0,600;1,600&display=swap" rel="stylesheet" />
+    <!-- FontAwesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 
     <style>
-      /* --- BASE STYLE --- */
-      body {
-        margin: 0;
-        padding: 0;
-        background-color: #050508;
-        color: #ffffff;
-        font-family: 'Poppins', sans-serif;
-        overflow-x: hidden;
+      /* --- VARIABEL WARNA ELEGAN --- */
+      :root {
+        --bg-gradient-1: #e0c3fc;
+        --bg-gradient-2: #8ec5fc;
+        --text-dark: #1e293b;
+        --text-light: #475569;
+        --primary: #3b82f6;
+        --accent: #8b5cf6;
+        --glass-bg: rgba(255, 255, 255, 0.65);
+        --glass-border: rgba(255, 255, 255, 0.5);
       }
 
+      /* --- RESET & ANIMASI DASAR --- */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Poppins', sans-serif;
+      }
+
+      body {
+        background: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%);
+        color: var(--text-dark);
+        overflow-x: hidden;
+        line-height: 1.7;
+      }
+
+      /* Animated Background Blobs */
+      .blob {
+        position: fixed;
+        filter: blur(80px);
+        z-index: -1;
+        opacity: 0.6;
+        animation: floatBlob 20s infinite alternate ease-in-out;
+      }
+      .blob-1 {
+        top: -10%;
+        left: -10%;
+        width: 50vw;
+        height: 50vw;
+        background: var(--bg-gradient-1);
+        border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+      }
+      .blob-2 {
+        bottom: -10%;
+        right: -10%;
+        width: 60vw;
+        height: 60vw;
+        background: var(--bg-gradient-2);
+        border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+        animation-delay: -5s;
+      }
+
+      @keyframes floatBlob {
+        0% {
+          transform: translate(0, 0) rotate(0deg);
+        }
+        100% {
+          transform: translate(100px, 50px) rotate(180deg);
+        }
+      }
+
+      /* --- HEADER & HAMBURGER MENU --- */
       header {
         position: fixed;
         top: 0;
+        left: 0;
         width: 100%;
-        background: rgba(5, 5, 8, 0.85);
+        height: 70px;
+        background: rgba(255, 255, 255, 0.8);
         backdrop-filter: blur(15px);
+        -webkit-backdrop-filter: blur(15px);
+        border-bottom: 1px solid var(--glass-border);
         z-index: 1000;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-      }
-
-      .nav-container {
         display: flex;
-        justify-content: space-between;
         align-items: center;
-        padding: 15px 30px;
-        max-width: 1200px;
-        margin: 0 auto;
+        justify-content: space-between;
+        padding: 0 30px;
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
       }
-
-      .logo {
-        font-size: 1.5rem;
-        color: #fff;
-        text-decoration: none;
-      }
-      .logo span {
-        color: #00f0ff;
-      }
-
-      nav ul {
-        list-style: none;
-        margin: 0;
-        padding: 0;
+      .menu-left {
         display: flex;
+        align-items: center;
         gap: 20px;
       }
-      nav a {
-        color: #fff;
-        text-decoration: none;
-        font-weight: 600;
-        font-size: 0.9rem;
+      .menu-btn {
+        font-size: 1.5rem;
+        color: var(--text-dark);
+        cursor: pointer;
         transition: 0.3s;
       }
-      nav a:hover,
-      nav a.active {
-        color: #00dfa2;
+      .menu-btn:hover {
+        color: var(--primary);
+        transform: scale(1.1);
+      }
+      .logo {
+        font-size: 1.3rem;
+        font-weight: 700;
+        letter-spacing: 2px;
+      }
+      .logo span {
+        color: var(--accent);
       }
 
-      /* --- EFEK VISUAL BACKGROUND --- */
-      .bg-orb-1 {
+      /* --- DRAWER (LACI MENU) --- */
+      .side-menu {
         position: fixed;
-        top: 10%;
-        right: -10%;
-        width: 50vw;
-        height: 50vw;
-        background: radial-gradient(circle, rgba(255, 0, 127, 0.1) 0%, rgba(0, 0, 0, 0) 70%);
-        z-index: -1;
-        pointer-events: none;
-      }
-
-      .bg-orb-2 {
-        position: fixed;
-        bottom: 10%;
-        left: -10%;
-        width: 60vw;
-        height: 60vw;
-        background: radial-gradient(circle, rgba(0, 240, 255, 0.1) 0%, rgba(0, 0, 0, 0) 70%);
-        z-index: -1;
-        pointer-events: none;
-      }
-
-      .side-decoration {
-        position: fixed;
-        right: 20px;
-        top: 50%;
-        transform: translateY(-50%) rotate(90deg);
-        color: rgba(255, 255, 255, 0.03);
-        font-family: 'Orbitron';
-        font-size: 4rem;
-        font-weight: 800;
-        letter-spacing: 15px;
-        z-index: -2;
-        pointer-events: none;
-        white-space: nowrap;
-      }
-
-      @media (max-width: 768px) {
-        .side-decoration {
-          display: none;
-        }
-      }
-
-      /* --- ANIMASI KARAKTER BERLARI (MARIO / NINJA EFFECT) --- */
-      .runner-container {
-        position: fixed;
-        bottom: 20px;
-        left: -100px;
+        top: 0;
+        left: -300px;
+        width: 280px;
+        height: 100vh;
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(20px);
+        box-shadow: 5px 0 30px rgba(0, 0, 0, 0.1);
         z-index: 999;
-        font-size: 2.5rem;
-        color: #00f0ff;
-        filter: drop-shadow(0 0 10px #00f0ff) drop-shadow(0 0 20px rgba(0, 240, 255, 0.5));
-        animation: runAcross 15s linear infinite;
-        pointer-events: none; /* Agar tidak menghalangi klik */
-      }
-
-      /* Animasi lari bolak-balik dari kiri ke kanan lalu diputar balik */
-      @keyframes runAcross {
-        0% {
-          transform: translateX(-100px) scaleX(1);
-        }
-        49% {
-          transform: translateX(110vw) scaleX(1);
-        }
-        50% {
-          transform: translateX(110vw) scaleX(-1);
-        }
-        99% {
-          transform: translateX(-100px) scaleX(-1);
-        }
-        100% {
-          transform: translateX(-100px) scaleX(1);
-        }
-      }
-
-      /* Animasi lompat kecil saat karakter berlari */
-      .running-icon {
-        display: inline-block;
-        animation: tinyJump 0.3s infinite alternate ease-in-out;
-      }
-
-      @keyframes tinyJump {
-        0% {
-          transform: translateY(0);
-        }
-        100% {
-          transform: translateY(-8px);
-        }
-      }
-
-      /* --- SECTION STYLE --- */
-      section {
-        min-height: 100vh;
-        padding: 120px 20px;
         display: flex;
         flex-direction: column;
-        justify-content: center;
+        padding: 100px 30px 30px;
+        transition: 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+      }
+      .side-menu.active {
+        left: 0;
+      }
+      .side-menu a {
+        text-decoration: none;
+        color: var(--text-dark);
+        font-size: 1.2rem;
+        font-weight: 600;
+        padding: 15px 0;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        transition: 0.3s;
+        display: flex;
         align-items: center;
-        text-align: center;
-        box-sizing: border-box;
-        position: relative;
-        border-bottom: 1px dashed rgba(255, 255, 255, 0.05);
+        gap: 15px;
+      }
+      .side-menu a:hover {
+        color: var(--primary);
+        transform: translateX(10px);
       }
 
-      .content-box {
-        max-width: 900px;
-        margin: 0 auto;
-        z-index: 2;
-      }
-      .content-box p {
-        font-size: 1.05rem;
-        line-height: 1.8;
-        margin-bottom: 20px;
-        color: #d1d1d1;
-      }
-
-      /* --- SCROLL REVEAL ENGINE --- */
-      .scroll-reveal {
+      .overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background: rgba(0, 0, 0, 0.4);
         opacity: 0;
-        transform: translateY(80px) scale(0.95);
-        transition: all 0.9s cubic-bezier(0.25, 1, 0.5, 1);
+        visibility: hidden;
+        z-index: 998;
+        transition: 0.3s;
       }
-      .scroll-reveal.active {
+      .overlay.active {
         opacity: 1;
-        transform: translateY(0) scale(1);
+        visibility: visible;
       }
 
-      /* --- TEKS & ANIMASI KEYFRAMES --- */
+      /* --- LAYOUT UTAMA & SCROLL REVEAL --- */
+      main {
+        padding: 100px 5% 50px 5%;
+        max-width: 1300px;
+        margin: 0 auto;
+      }
+      .slide {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 50px;
+        min-height: 85vh;
+        padding: 40px 0;
+      }
+      .slide:nth-child(even) {
+        flex-direction: row-reverse;
+      }
+
+      .reveal {
+        opacity: 0;
+        transform: translateY(60px);
+        transition: 1s cubic-bezier(0.2, 0.8, 0.2, 1);
+      }
+      .reveal.active {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* --- KONTEN TEKS & KARTU GLASSMORPHISM --- */
+      .content-box {
+        flex: 1;
+        background: var(--glass-bg);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border: 1px solid var(--glass-border);
+        border-radius: 24px;
+        padding: 40px;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.03);
+        position: relative;
+        overflow: hidden;
+      }
+      .content-box::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 50%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.8), transparent);
+        transform: skewX(-20deg);
+        transition: 0.7s;
+      }
+      .content-box:hover::before {
+        left: 150%;
+      }
+
+      h2 {
+        font-family: 'Playfair Display', serif;
+        font-size: 2.5rem;
+        color: var(--text-dark);
+        margin-bottom: 20px;
+        line-height: 1.2;
+      }
       .gradient-text {
-        background: linear-gradient(90deg, #ff007f, #7000ff, #00f0ff);
+        background: linear-gradient(45deg, var(--primary), var(--accent));
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
-        text-shadow: 0 0 30px rgba(255, 0, 127, 0.3);
+      }
+      p {
+        font-size: 1.05rem;
+        color: var(--text-light);
+        margin-bottom: 20px;
       }
 
-      .jumping-animation {
-        display: inline-block;
-        animation: jumpEffect 1.5s infinite ease-in-out;
+      /* --- GAMBAR & BADGE --- */
+      .image-box {
+        flex: 1;
+        height: 450px;
+        border-radius: 24px;
+        overflow: hidden;
+        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+        position: relative;
       }
-      @keyframes jumpEffect {
-        0%,
-        100% {
-          transform: translateY(0);
-        }
-        50% {
-          transform: translateY(-20px);
-        }
+      .image-box img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.7s ease;
+      }
+      .image-box:hover img {
+        transform: scale(1.1);
       }
 
-      .floating-animation {
-        animation: floatEffect 4s infinite ease-in-out;
+      .floating-badge {
+        position: absolute;
+        bottom: 20px;
+        left: 20px;
+        background: rgba(255, 255, 255, 0.9);
+        padding: 10px 20px;
+        border-radius: 50px;
+        font-weight: 600;
+        color: var(--primary);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(5px);
+        animation: floatEffect 3s infinite ease-in-out;
       }
       @keyframes floatEffect {
         0%,
@@ -226,424 +281,414 @@
           transform: translateY(0);
         }
         50% {
-          transform: translateY(-15px);
+          transform: translateY(-10px);
         }
       }
 
-      .spinning-animation {
-        animation: spinEffect 10s infinite linear;
+      /* --- FITUR TAMBAHAN MENARIK (SKILL BARS & TIMELINE) --- */
+
+      /* 1. Profil 3D Card Effect */
+      .profile-card {
+        background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.4));
+        border: 2px solid #fff;
+        border-radius: 20px;
+        padding: 25px;
+        text-align: center;
+        box-shadow: 0 15px 35px rgba(59, 130, 246, 0.15);
+        transition: transform 0.5s;
+        transform: perspective(1000px) rotateY(0deg);
       }
-      @keyframes spinEffect {
-        from {
-          transform: rotate(0deg);
-        }
-        to {
-          transform: rotate(360deg);
-        }
+      .profile-card:hover {
+        transform: perspective(1000px) rotateY(10deg) translateY(-10px);
+      }
+      .profile-img {
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 4px solid var(--primary);
+        margin-bottom: 15px;
       }
 
-      /* --- KARTU YANG BISA DIKLIK (INTERAKTIF) --- */
-      .grid-container {
-        display: flex;
-        gap: 25px;
-        justify-content: center;
-        flex-wrap: wrap;
+      /* 2. Skill Progress Bars */
+      .skill-container {
         margin-top: 20px;
       }
-      a.clickable-card {
-        text-decoration: none;
-        color: inherit;
-        display: block;
+      .skill-title {
+        font-size: 0.9rem;
+        font-weight: 600;
+        color: var(--text-dark);
+        margin-bottom: 5px;
+        display: flex;
+        justify-content: space-between;
       }
-
-      .card-box {
-        background: rgba(255, 255, 255, 0.03);
-        border: 1px solid rgba(255, 255, 255, 0.08);
-        backdrop-filter: blur(10px);
-        padding: 35px 25px;
-        border-radius: 20px;
-        width: 320px;
-        box-sizing: border-box;
-        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        position: relative;
+      .skill-bar-bg {
+        width: 100%;
+        background: #e2e8f0;
+        border-radius: 10px;
+        height: 10px;
+        margin-bottom: 15px;
         overflow: hidden;
       }
-      .card-box::before {
-        content: '';
-        position: absolute;
-        top: -50%;
-        left: -50%;
-        width: 200%;
-        height: 200%;
-        background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.08), transparent);
-        transform: rotate(45deg) translateY(100%);
-        transition: all 0.6s ease;
-      }
-      .card-box:hover::before {
-        transform: rotate(45deg) translateY(-100%);
-      }
-      .card-box:hover {
-        transform: translateY(-10px) scale(1.02);
-        background: rgba(255, 255, 255, 0.06);
-        border-color: #ff007f;
-        box-shadow: 0 15px 35px rgba(255, 0, 127, 0.15);
-      }
-      .card-box p {
-        font-size: 0.95rem;
-        margin-bottom: 15px;
-        line-height: 1.6;
+      .skill-bar-fill {
+        height: 100%;
+        border-radius: 10px;
+        background: linear-gradient(90deg, var(--primary), var(--accent));
+        width: 0;
+        transition: width 2s cubic-bezier(0.2, 0.8, 0.2, 1);
       }
 
-      .skill-tag {
-        background: rgba(255, 255, 255, 0.05);
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        padding: 12px 25px;
-        border-radius: 30px;
-        transition: all 0.3s;
-        display: inline-flex;
-        align-items: center;
-        gap: 10px;
-        cursor: pointer;
-        text-decoration: none;
-        color: white;
+      /* 3. Modern Timeline */
+      .timeline {
+        border-left: 3px solid var(--primary);
+        margin-left: 15px;
+        padding-left: 20px;
+        margin-top: 20px;
       }
-      .skill-tag:hover {
-        background: #00f0ff;
-        color: #050508;
-        font-weight: bold;
-        box-shadow: 0 0 20px rgba(0, 240, 255, 0.5);
-        transform: scale(1.1) translateY(-5px);
+      .timeline-item {
+        position: relative;
+        margin-bottom: 25px;
+      }
+      .timeline-item::before {
+        content: '';
+        position: absolute;
+        left: -29px;
+        top: 0;
+        width: 15px;
+        height: 15px;
+        background: var(--bg-gradient-1);
+        border: 3px solid var(--primary);
+        border-radius: 50%;
+      }
+      .timeline-date {
+        font-size: 0.85rem;
+        font-weight: 700;
+        color: var(--accent);
+        margin-bottom: 5px;
+      }
+      .timeline-content {
+        background: rgba(255, 255, 255, 0.5);
+        padding: 15px;
+        border-radius: 12px;
+        border: 1px solid var(--glass-border);
+      }
+
+      /* --- RESPONSIVE SMARTPHONE --- */
+      @media (max-width: 992px) {
+        .slide,
+        .slide:nth-child(even) {
+          flex-direction: column;
+          text-align: center;
+          gap: 30px;
+          padding: 60px 0;
+        }
+        .image-box {
+          width: 100%;
+          height: 300px;
+          order: -1;
+        }
+        h2 {
+          font-size: 2rem;
+        }
+        .timeline {
+          text-align: left;
+        }
       }
     </style>
   </head>
   <body>
-    <!-- Efek Latar Belakang & Karakter Berlari -->
-    <div class="bg-orb-1"></div>
-    <div class="bg-orb-2"></div>
-    <div class="side-decoration">BEHIND THE CODE</div>
+    <!-- Latar Belakang Animasi -->
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
 
-    <!-- KARAKTER BERLARI (COOL VISUAL EFFECT) -->
-    <div class="runner-container">
-      <i class="fas fa-running running-icon"></i>
-    </div>
-
+    <!-- Header -->
     <header>
-      <div class="nav-container">
-        <div class="logo" style="font-family: 'Orbitron'; font-weight: 800">FARAS<span>.</span></div>
-        <nav>
-          <ul>
-            <li><a href="index.html" class="nav-link">Home</a></li>
-            <li><a href="about.html" class="nav-link active">About</a></li>
-            <li><a href="contact.html" class="nav-link">Contact</a></li>
-            <li><a href="others.html" class="nav-link">Others</a></li>
-          </ul>
-        </nav>
+      <div class="menu-left">
+        <div class="menu-btn" id="menuToggle"><i class="fas fa-bars"></i></div>
+        <div class="logo">FARAS<span class="gradient-text">.</span></div>
       </div>
     </header>
 
+    <!-- Drawer Navigasi -->
+    <nav class="side-menu" id="sideMenu">
+      <a href="index.html"><i class="fas fa-home"></i> Home</a>
+      <a href="lanyard.html"><i class="fas fa-id-badge"></i> Lanyard</a>
+      <a href="contact.html"><i class="fas fa-paper-plane"></i> Contact</a>
+      <a href="others.html"><i class="fas fa-layer-group"></i> Others</a>
+    </nav>
+    <div class="overlay" id="overlay"></div>
+
+    <!-- KONTEN UTAMA ABOUT ME -->
     <main>
-      <!-- SLIDE 1: Hero About -->
-      <section class="scroll-reveal">
+      <!-- Slide 1: Prolog Identitas Diri (Dengan 3D Profile Card) -->
+      <section class="slide reveal">
         <div class="content-box">
-          <div class="floating-animation" style="font-size: 5rem; color: #ff007f; margin-bottom: 20px">
-            <i class="fas fa-user-secret"></i>
-          </div>
-          <h1 style="font-family: 'Orbitron'; font-size: 3.5rem; margin: 0 0 10px 0">BEHIND THE <br /><span class="gradient-text">DIGITAL CURTAIN</span></h1>
-          <p class="highlight" style="font-size: 1.4rem; color: #00f0ff; font-weight: 600">Kenali Muhammad Rizqi Faras Abyadh</p>
+          <h2>Di Balik <br /><span class="gradient-text">Layar Kaca</span></h2>
+          <p>Banyak yang melihat hasil akhir dari sebuah *website* atau sistem otomatisasi, namun jarang yang melihat proses begadang dan eksperimen di baliknya. Saya Muhammad Rizqi Faras Abyadh, dan ini adalah ruang cerita saya.</p>
           <p>
-            Selamat datang di ruang di balik layar. Jika halaman beranda adalah panggung tempat saya memamerkan hasil karya, maka halaman ini adalah buku harian yang menceritakan bagaimana semua proses itu terjadi. Menjadi seorang
-            pengembang (developer) bukanlah bakat magis yang turun dari langit, melainkan hasil dari ribuan jam percobaan dan kegagalan beruntun.
-          </p>
-          <p>
-            Di sini, saya akan membawa Anda menyusuri lorong pikiran saya. Mulai dari lingkungan sekolah yang membentuk karakter saya, filosofi saya dalam memandang sepotong kode, hingga kebiasaan unik saya saat sedang mencari inspirasi di
-            tengah malam. Gulir ke bawah dan mari kita mulai perjalanan ini.
+            Mendefinisikan diri sendiri bukanlah hal yang mudah. Saya adalah perpaduan antara seorang pelajar yang penasaran, seorang perakit <i>hardware</i>, dan penikmat desain antarmuka. Mari selami lebih dalam bagaimana
+            komponen-komponen ini membentuk identitas saya hari ini.
           </p>
         </div>
-      </section>
-
-      <!-- SLIDE 2: Masa Kecil & Deonstruksi -->
-      <section class="scroll-reveal">
-        <div class="content-box">
-          <div class="jumping-animation" style="font-size: 4rem; color: #ffaa00"><i class="fas fa-tools"></i></div>
-          <h2>SENI <span class="gradient-text">MEMBONGKAR</span></h2>
-          <p>
-            Banyak anak kecil yang menangis ketika mainannya rusak, tetapi bagi saya, mainan yang rusak adalah pintu masuk menuju misteri terbesar: bagaimana benda ini bisa bergerak? Sejak usia sangat belia, insting alamiah saya bukanlah
-            bermain sesuai buku petunjuk, melainkan mengambil obeng dan membongkar setiap lapis sasis plastik hingga menyisakan papan sirkuit hijau di baliknya.
-          </p>
-          <p>
-            Tentu saja, pada saat itu saya tidak tahu apa itu resistor atau kapasitor. Namun, keberanian untuk membongkar dan (kadang-kadang) gagal merakitnya kembali itulah yang menanamkan mental "engineer" di dalam otak saya. Saya belajar
-            bahwa dunia ini dibangun dari komponen-komponen kecil, dan jika kita memahami cara kerja tiap komponen, kita bisa membangun apapun.
-          </p>
-        </div>
-      </section>
-
-      <!-- SLIDE 3: Titik Balik (The Spark) -->
-      <section class="scroll-reveal">
-        <div class="content-box">
-          <div class="pulse-animation" style="font-size: 4rem; color: #00dfa2"><i class="fas fa-bolt"></i></div>
-          <h2>TITIK <span class="gradient-text">PENYALAAN</span></h2>
-          <p>
-            Titik balik dalam hidup saya terjadi ketika saya pertama kali diperkenalkan pada pemrograman mikrokontroler. Saat itu, saya menyadari bahwa saya tidak lagi harus hanya membongkar barang milik orang lain; saya bisa memprogram
-            barang saya sendiri. Menulis perintah <code>digitalWrite(LED_BUILTIN, HIGH);</code> dan melihat sebuah lampu menyala di dunia nyata memberikan sensasi euforia yang tak tertandingi.
-          </p>
-          <p>
-            Momen itulah yang memicu obsesi saya. Pemrograman memberi saya semacam "kekuatan super" untuk mengontrol benda mati. Kesadaran bahwa bahasa yang diketik di layar hitam bisa menghasilkan gerakan fisik, memutar motor servo, dan
-            membunyikan alarm, membuat saya sepenuhnya jatuh cinta pada persimpangan antara perangkat lunak (software) dan perangkat keras (hardware).
-          </p>
-        </div>
-      </section>
-
-      <!-- SLIDE 4: MAN 1 Magelang (Pembentukan Karakter) -->
-      <section class="scroll-reveal">
-        <div class="content-box">
-          <div class="spinning-animation" style="font-size: 4rem; color: #7000ff"><i class="fas fa-school"></i></div>
-          <h2>KARAKTER <span class="gradient-text">MADRASAH</span></h2>
-          <p>
-            Saat ini, saya adalah siswa di <strong>MAN 1 Magelang</strong>. Bersekolah di madrasah memberikan saya fondasi yang jauh lebih luas daripada sekadar akademis murni. Di sini, saya diajarkan bahwa teknologi tanpa moralitas
-            bagaikan mobil cepat tanpa rem. Lingkungan ini menuntut saya untuk menjadi cerdas secara intelektual, namun tetap membumi secara spiritual.
-          </p>
-          <p>
-            Guru-guru dan teman-teman di MAN 1 Magelang selalu memberikan ruang bagi saya untuk bereksplorasi. Mereka mendukung ide-ide "gila" saya dalam memadukan pelajaran sains tradisional dengan inovasi digital. Saya percaya bahwa
-            generasi inovator berikutnya tidak hanya butuh IQ yang tinggi, tetapi juga integritas yang kuat untuk menggunakan teknologinya demi kebaikan sesama.
-          </p>
-        </div>
-      </section>
-
-      <!-- SLIDE 5: Filosofi IoT -->
-      <section class="scroll-reveal">
-        <div class="content-box">
-          <div class="jumping-animation" style="font-size: 4rem; color: #00f0ff"><i class="fas fa-network-wired"></i></div>
-          <h2>FILOSOFI <span class="gradient-text">IoT</span></h2>
-          <p>
-            Internet of Things (IoT) bagi saya bukanlah sekadar tren atau kata kunci yang sedang populer. Ini adalah filosofi tentang konektivitas. Saya memandang IoT sebagai sistem saraf pusat dari dunia modern, di mana setiap benda
-            memiliki peran untuk merasakan (sensing), berkomunikasi (networking), dan bertindak (actuating).
-          </p>
-          <p>
-            Tujuan utama saya mendalami IoT adalah untuk efisiensi kehidupan manusia. Saya selalu bertanya pada diri sendiri: "Bagaimana cara membuat rumah ini menggunakan listrik 20% lebih sedikit?" atau "Bagaimana cara mencegah petani
-            gagal panen karena kelembaban tanah tidak terpantau?". IoT adalah jawaban atas pertanyaan-pertanyaan kompleks tersebut. Klik tautan di bawah untuk melihat sejarah perkembangannya di dunia.
-          </p>
-          <a href="https://en.wikipedia.org/wiki/Internet_of_things" target="_blank" class="clickable-card">
-            <div class="card-box" style="margin: 0 auto">
-              <i class="fab fa-wikipedia-w floating-animation" style="font-size: 3rem; color: #fff; margin-bottom: 15px"></i>
-              <h3>Sejarah Lengkap IoT</h3>
-              <p>Pelajari lebih lanjut mengenai awal mula tercetusnya konsep Internet of Things secara global di Wikipedia.</p>
-              <span style="color: #fff; font-size: 0.85rem; font-weight: 600">Baca di Wikipedia &rarr;</span>
+        <div class="image-box" style="background: transparent; box-shadow: none; display: flex; align-items: center; justify-content: center">
+          <div class="profile-card">
+            <!-- Ganti src ini dengan link foto asli Anda nanti -->
+            <img src="project ini/WIN_20260627_14_25_53_Pro.jpg" alt="Faras" class="profile-img" />
+            <h3 style="color: var(--text-dark); font-size: 1.5rem">Faras Abyadh</h3>
+            <p style="color: var(--primary); font-weight: 600; margin-bottom: 10px">IoT & Frontend Enthusiast</p>
+            <div style="display: flex; justify-content: center; gap: 15px; font-size: 1.2rem; color: var(--text-light)">
+              <i class="fab fa-instagram"></i>
+              <i class="fab fa-tiktok"></i>
+              <i class="fab fa-github"></i>
             </div>
-          </a>
-        </div>
-      </section>
-
-      <!-- SLIDE 6: Menyelami Frontend Web -->
-      <section class="scroll-reveal">
-        <div class="content-box">
-          <div class="pulse-animation" style="font-size: 4rem; color: #ff007f"><i class="fas fa-code"></i></div>
-          <h2>SISI <span class="gradient-text">FRONT-END</span></h2>
-          <p>
-            Setelah merasa cukup nyaman dengan perakitan hardware, saya menyadari satu kekurangan fatal: antarmuka. Sebuah mesin yang canggih menjadi tidak berguna jika pengguna biasa tidak mengerti cara mengendalikannya. Kesadaran inilah
-            yang mendorong saya terjun ke dunia Web Development, khususnya di bagian Front-End.
-          </p>
-          <p>
-            Mempelajari HTML, CSS, dan JavaScript membuka dimensi baru dalam kreativitas saya. Saya belajar bahwa website bukan hanya kumpulan teks dan gambar, melainkan sebuah aplikasi interaktif. Membuat tombol bersinar saat disentuh
-            kursor atau memunculkan elemen secara dramatis saat di-scroll adalah seni komputasi yang terus saya asah setiap hari.
-          </p>
-        </div>
-      </section>
-
-      <!-- SLIDE 7: Pola Pikir UI/UX -->
-      <section class="scroll-reveal">
-        <div class="content-box">
-          <div class="spinning-animation" style="font-size: 4rem; color: #ffaa00"><i class="fas fa-pencil-ruler"></i></div>
-          <h2>MINDSET <span class="gradient-text">UI / UX</span></h2>
-          <p>
-            Bagi saya, User Interface (UI) adalah tentang estetika, sedangkan User Experience (UX) adalah tentang empati. Desain yang hebat tidak akan memaksa penggunanya berpikir keras untuk mencari di mana letak tombol 'Simpan' atau
-            'Kembali'. Saya selalu memposisikan diri sebagai pengguna awam (end-user) saat mendesain tata letak website atau aplikasi IoT saya.
-          </p>
-          <p>
-            Pola pikir ini memaksa saya untuk membuang ego teknis. Meskipun saya bisa menulis algoritma yang sangat kompleks di baliknya, namun jika tampilan depannya membingungkan, maka saya gagal sebagai developer. Kesederhanaan
-            (simplicity) adalah bentuk kecanggihan yang paling murni. Untuk mendalami prinsip desain ini, saya sering mereferensikan standar dari Google Material Design.
-          </p>
-          <a href="https://m3.material.io/" target="_blank" class="clickable-card">
-            <div class="card-box" style="margin: 0 auto">
-              <i class="fab fa-google jumping-animation" style="font-size: 3rem; color: #00dfa2; margin-bottom: 15px"></i>
-              <h3>Google Material 3</h3>
-              <p>Jelajahi panduan resmi dari Google mengenai prinsip desain antarmuka pengguna yang adaptif dan modern.</p>
-              <span style="color: #00dfa2; font-size: 0.85rem; font-weight: 600">Lihat Panduan Material &rarr;</span>
-            </div>
-          </a>
-        </div>
-      </section>
-
-      <!-- SLIDE 8: Pengaruh Gaming (Gamer Jiwa) -->
-      <section class="scroll-reveal">
-        <div class="content-box">
-          <div class="floating-animation" style="font-size: 4rem; color: #00f0ff"><i class="fas fa-gamepad"></i></div>
-          <h2>PENGARUH <span class="gradient-text">GAMING</span></h2>
-          <p>
-            Di luar jam sekolah dan coding, saya adalah seorang gamer yang berdedikasi. Namun, saya memandang video game lebih dari sekadar media hiburan. Saat saya bermain game bergenre strategi atau puzzle, saya secara tidak sadar sedang
-            mengkalibrasi kemampuan analitis dan pengambilan keputusan saya di bawah tekanan waktu.
-          </p>
-          <p>
-            Selain itu, game modern memiliki desain antarmuka (HUD) yang sangat revolusioner. Cara sebuah game merespons aksi pemain dengan animasi partikel atau efek suara sering kali menjadi sumber inspirasi langsung saat saya mendesain
-            interaksi di halaman website portofolio saya. Game mengajarkan saya bahwa interaksi digital harus terasa memuaskan (rewarding).
-          </p>
-        </div>
-      </section>
-
-      <!-- SLIDE 9: Gaya Kerja & Kebiasaan Nokturnal -->
-      <section class="scroll-reveal">
-        <div class="content-box">
-          <div class="pulse-animation" style="font-size: 4rem; color: #7000ff"><i class="fas fa-moon"></i></div>
-          <h2>HABITAT <span class="gradient-text">NOKTURNAL</span></h2>
-          <p>
-            Setiap orang memiliki jam produktifnya masing-masing, dan bagi saya, itu adalah saat dunia tertidur. Keheningan malam memberikan kanvas kosong bagi pikiran saya. Tanpa adanya distraksi notifikasi dan hiruk-pikuk aktivitas siang
-            hari, saya bisa mencapai tingkat fokus mendalam (deep work) untuk merancang logika struktur database atau mencari bug yang tersembunyi.
-          </p>
-          <p>
-            Habitat malam ini tentu saja didukung penuh oleh secangkir kopi, playlist musik instrumental synthwave atau lofi, dan cahaya redup dari monitor serta lampu LED kamar. Gaya kerja ini mungkin terkesan klise bagi seorang
-            programmer, namun ritme inilah yang paling efektif dalam memompa kreativitas saya menembus batas maksimal.
-          </p>
-        </div>
-      </section>
-
-      <!-- SLIDE 10: Seni Menghadapi Kegagalan (Debugging) -->
-      <section class="scroll-reveal">
-        <div class="content-box">
-          <div class="jumping-animation" style="font-size: 4rem; color: #ff007f"><i class="fas fa-bug"></i></div>
-          <h2>SENI <span class="gradient-text">DEBUGGING</span></h2>
-          <p>
-            Dunia teknologi sering kali digambarkan sempurna, tetapi realitanya penuh dengan layar error merah dan komponen yang terbakar (secara harfiah). Kegagalan adalah teman sehari-hari saya. Ada kalanya kode sepanjang ratusan baris
-            tidak berjalan hanya karena saya melupakan satu tanda titik koma (;), atau sensor rusak karena saya salah memasang pin tegangan.
-          </p>
-          <p>
-            Namun, proses mencari kesalahan (debugging) inilah yang melatih kesabaran tingkat dewa. Debugging mengajarkan saya untuk berpikir secara kronologis dan tidak mudah menyerah. Setiap error adalah sebuah teka-teki, dan sensasi saat
-            berhasil memecahkannya adalah bayaran yang sepadan. Di dunia open-source, Stack Overflow adalah penyelamat utama bagi masalah ini.
-          </p>
-          <a href="https://stackoverflow.com/" target="_blank" class="clickable-card">
-            <div class="card-box" style="margin: 0 auto">
-              <i class="fab fa-stack-overflow floating-animation" style="font-size: 3rem; color: #f48024; margin-bottom: 15px"></i>
-              <h3>Stack Overflow</h3>
-              <p>Forum tanya jawab terbesar di dunia tempat para programmer saling membantu memecahkan masalah kode.</p>
-              <span style="color: #f48024; font-size: 0.85rem; font-weight: 600">Kunjungi Forum &rarr;</span>
-            </div>
-          </a>
-        </div>
-      </section>
-
-      <!-- SLIDE 11: Alat Tempur Favorit (Tech Stack) -->
-      <section class="scroll-reveal">
-        <div class="content-box">
-          <h2>ALAT <span class="gradient-text">TEMPUR</span></h2>
-          <p>
-            Seorang pengrajin tidak ada apa-apanya tanpa peralatan terbaiknya. Untuk menulis kode, saya mengandalkan Visual Studio Code, editor teks yang sangat ringan namun bisa dikustomisasi secara ekstrem dengan berbagai ekstensi
-            penunjang produktivitas. Lingkungan kerja (workspace) yang nyaman adalah kunci utama.
-          </p>
-          <p>
-            Untuk mengelola versi kode proyek agar tidak hancur saat eksperimen, saya mempelajari ekosistem Git dan GitHub. Menggunakan kontrol versi membuat saya berani merombak kode secara radikal karena saya tahu saya selalu bisa
-            mengembalikannya ke versi aman. Anda bisa menjelajahi dunia repositori global melalui GitHub.
-          </p>
-          <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap">
-            <a href="https://code.visualstudio.com/" target="_blank" class="skill-tag"><i class="fas fa-code" style="color: #007acc"></i> VS Code</a>
-            <a href="https://github.com/" target="_blank" class="skill-tag"><i class="fab fa-github" style="color: #ffffff"></i> GitHub</a>
           </div>
         </div>
       </section>
 
-      <!-- SLIDE 12: Visi Masa Depan -->
-      <section class="scroll-reveal">
+      <!-- Slide 2: Asal Mula / Akar -->
+      <section class="slide reveal">
         <div class="content-box">
-          <div class="spinning-animation" style="font-size: 4rem; color: #00dfa2"><i class="fas fa-eye"></i></div>
-          <h2>VISI DI TAHUN <span class="gradient-text">2026+</span></h2>
+          <h2>Akar dari <br /><span class="gradient-text">Muntilan</span></h2>
           <p>
-            Teknologi bergerak dengan kecepatan eksponensial. Saat ini kita berada di tahun 2026, era di mana kecerdasan buatan (AI) dan IoT mulai melebur menjadi satu entitas (AIoT). Visi saya ke depan adalah tidak hanya menjadi pengguna
-            atau perakit, tetapi menjadi penemu (inventor). Saya ingin menciptakan solusi teknologi ramah lingkungan berbasis mikrokontroler mandiri.
+            Perjalanan saya bermula dan bertumbuh di sebuah daerah yang tenang: Muntilan, Jawa Tengah. Jauh dari hiruk-pikuk kota metropolitan raksasa, lingkungan ini justru memberikan saya ruang yang jernih untuk berpikir dan
+            mengeksplorasi banyak hal.
           </p>
           <p>
-            Saya bercita-cita mengkolaborasikan sistem data cerdas dengan perangkat keras murah agar dapat diakses oleh masyarakat agrikultur maupun industri kecil di Indonesia. Membangun teknologi bukanlah tujuan akhir, melainkan alat
-            untuk meningkatkan kualitas hidup. Itulah jalan ninja yang sedang saya tempuh dengan penuh dedikasi.
+            Dari kamar tidur di Muntilan inilah, melalui koneksi internet, saya bisa mengakses dunia tanpa batas, belajar bahasa pemrograman dari berbagai ahli di belahan bumi lain, dan merakit ide-ide gila ke dalam bentuk *prototipe*
+            nyata.
           </p>
+        </div>
+        <div class="image-box">
+          <img src="https://images.unsplash.com/photo-1596404746686-e3d1796d112d?auto=format&fit=crop&q=80&w=800" alt="Muntilan Area" />
+          <div class="floating-badge" style="color: #059669"><i class="fas fa-map-marker-alt"></i> Jawa Tengah, ID</div>
         </div>
       </section>
 
-      <!-- SLIDE 13: Inspirasi & Komunitas -->
-      <section class="scroll-reveal">
+      <!-- Slide 3: Rasa Penasaran Masa Kecil -->
+      <section class="slide reveal">
         <div class="content-box">
-          <div class="pulse-animation" style="font-size: 4rem; color: #ffaa00"><i class="fas fa-users"></i></div>
-          <h2>SUMBER <span class="gradient-text">INSPIRASI</span></h2>
+          <h2>Dekonstruksi <br /><span class="gradient-text">Masa Kecil</span></h2>
           <p>
-            Saya tidak membangun ilmu ini sendirian. Saya berhutang banyak pada gerakan "Open Source" (sumber terbuka), di mana para jenius di seluruh penjuru bumi membagikan kode dan skema elektronika mereka secara gratis di internet.
-            Semangat berbagi inilah yang membuat industri teknologi tidak pernah stagnan.
+            Ingatan masa kecil saya dipenuhi dengan obeng dan mainan yang rusak. Bukan karena saya nakal, melainkan karena rasa penasaran yang tak terbendung. "Bagaimana mobil remot ini bisa berbelok sendiri?" Saya harus membukanya untuk
+            menemukan jawabannya.
           </p>
           <p>
-            Untuk terus belajar, saya sering menenggelamkan diri dalam dokumentasi resmi, tutorial YouTube, dan platform edukasi gratis. Saya sangat merekomendasikan siapapun yang ingin terjun ke dunia web development untuk memulai dari
-            sumber terbuka seperti freeCodeCamp. Pengetahuan seharusnya gratis bagi siapa saja yang mau berusaha membacanya.
+            Kebiasaan membongkar barang dan mencoba memasangnya kembali (walau terkadang tersisa bautnya) adalah fondasi cara berpikir analitis saya. Saat ini, kebiasaan itu berevolusi: dari membongkar mainan, menjadi "membongkar" sistem
+            kode milik orang lain untuk mempelajari cara kerjanya.
           </p>
-          <a href="https://www.freecodecamp.org/" target="_blank" class="clickable-card">
-            <div class="card-box" style="margin: 0 auto">
-              <i class="fab fa-free-code-camp jumping-animation" style="font-size: 3rem; color: #fff; margin-bottom: 15px"></i>
-              <h3>freeCodeCamp</h3>
-              <p>Platform organisasi non-profit yang menyediakan ribuan jam kursus coding interaktif secara gratis untuk publik.</p>
-              <span style="color: #fff; font-size: 0.85rem; font-weight: 600">Mulai Belajar Gratis &rarr;</span>
+        </div>
+        <div class="image-box">
+          <img src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&q=80&w=800" alt="Childhood Curiosity" />
+          <div class="floating-badge" style="color: #d97706"><i class="fas fa-cogs"></i> Natural Curiosity</div>
+        </div>
+      </section>
+
+      <!-- Slide 4: Timeline Pendidikan -->
+      <section class="slide reveal">
+        <div class="content-box">
+          <h2>Jejak <br /><span class="gradient-text">Pendidikan</span></h2>
+          <p>Pendidikan formal sangat penting dalam membentuk kedisiplinan dan manajemen waktu saya. Keseimbangan antara ilmu duniawi (sains) dan nilai spiritual menjadi kompas utama saya.</p>
+
+          <div class="timeline">
+            <div class="timeline-item">
+              <div class="timeline-date">Sekarang</div>
+              <div class="timeline-content">
+                <strong>MAN 1 Magelang</strong><br />
+                Di sinilah saya menimba ilmu, bersosialisasi, dan mengasah logika akademik saya setiap paginya. Berinteraksi dengan guru dan teman-teman membentuk <i>soft-skill</i> komunikasi saya.
+              </div>
             </div>
-          </a>
+            <div class="timeline-item">
+              <div class="timeline-date">Kegiatan Tambahan</div>
+              <div class="timeline-content">
+                <strong>Eksplorasi Otodidak</strong><br />
+                Sepulang sekolah, waktu saya dedikasikan untuk menonton tutorial, membaca dokumentasi, dan bereksperimen dengan bahasa pemrograman modern secara mandiri.
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="image-box">
+          <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&q=80&w=800" alt="School Life" />
         </div>
       </section>
 
-      <!-- SLIDE 14: Kehidupan di Luar Layar -->
-      <section class="scroll-reveal">
+      <!-- Slide 5: Skillset / Kemampuan Software (Dengan Skill Bars) -->
+      <section class="slide reveal">
         <div class="content-box">
-          <div class="floating-animation" style="font-size: 4rem; color: #00f0ff"><i class="fas fa-tree"></i></div>
-          <h2>DI LUAR <span class="gradient-text">LAYAR KACA</span></h2>
+          <h2>Arsenal <br /><span class="gradient-text">Front-End</span></h2>
           <p>
-            Menjadi pengembang teknologi bukan berarti saya berubah menjadi robot yang tidak bersosialisasi. Menjauh dari layar komputer sesekali sangat penting untuk mereset kejernihan mental. Keseimbangan (work-life balance) sangat
-            dibutuhkan untuk menghindari kelelahan kronis (burnout) yang sering menyerang pegiat IT.
+            Sebagai pembangun antarmuka digital, saya memiliki beberapa alat utama yang sering saya gunakan untuk merajut halaman web yang Anda lihat saat ini. Ini adalah metrik (perkiraan) tingkat kenyamanan saya dengan bahasa tersebut.
           </p>
-          <p>
-            Berinteraksi dengan alam, mengobrol dengan teman-teman di sekolah MAN 1 Magelang, atau sekadar menikmati secangkir kopi panas di pagi hari membantu saya melihat masalah dengan perspektif yang baru. Terkadang, ide paling
-            cemerlang tidak datang saat saya sedang menatap ribuan baris kode, melainkan saat saya sedang berjalan-jalan menghirup udara segar.
-          </p>
+
+          <div class="skill-container">
+            <div class="skill-title"><span>HTML & CSS (Glassmorphism, 3D, Flexbox)</span> <span>90%</span></div>
+            <div class="skill-bar-bg"><div class="skill-bar-fill target-width" data-width="90%"></div></div>
+
+            <div class="skill-title"><span>JavaScript (DOM Manipulation)</span> <span>75%</span></div>
+            <div class="skill-bar-bg"><div class="skill-bar-fill target-width" data-width="75%"></div></div>
+
+            <div class="skill-title"><span>UI / UX Prototyping</span> <span>85%</span></div>
+            <div class="skill-bar-bg"><div class="skill-bar-fill target-width" data-width="85%"></div></div>
+          </div>
+        </div>
+        <div class="image-box">
+          <img src="https://images.unsplash.com/photo-1618477388954-7852f32655ec?auto=format&fit=crop&q=80&w=800" alt="Web Development Stack" />
+          <div class="floating-badge" style="color: var(--accent)"><i class="fas fa-code"></i> Pixel Perfect</div>
         </div>
       </section>
 
-      <!-- SLIDE 15: Penutup (Call to Action) -->
-      <section class="scroll-reveal">
+      <!-- Slide 6: Skillset / Kemampuan Hardware -->
+      <section class="slide reveal">
         <div class="content-box">
-          <div class="jumping-animation" style="font-size: 4rem; color: #ff007f; margin-bottom: 20px"><i class="fas fa-handshake"></i></div>
-          <h2 style="font-size: 3rem; margin-bottom: 10px">LET'S BUILD <span class="gradient-text">SOMETHING</span></h2>
+          <h2>Arsenal <br /><span class="gradient-text">Perangkat Keras</span></h2>
+          <p>Di luar layar kaca, saya memegang solder, kabel *jumper*, dan papan sirkuit. Menghubungkan dunia digital dengan dunia fisik adalah keahlian favorit saya.</p>
+
+          <div class="skill-container">
+            <div class="skill-title"><span>Arduino (C/C++)</span> <span>88%</span></div>
+            <div class="skill-bar-bg"><div class="skill-bar-fill target-width" data-width="88%"></div></div>
+
+            <div class="skill-title"><span>ESP32 & IoT Networks (WiFi)</span> <span>80%</span></div>
+            <div class="skill-bar-bg"><div class="skill-bar-fill target-width" data-width="80%"></div></div>
+
+            <div class="skill-title"><span>Electronics & Sensor Integration</span> <span>70%</span></div>
+            <div class="skill-bar-bg"><div class="skill-bar-fill target-width" data-width="70%"></div></div>
+          </div>
+        </div>
+        <div class="image-box">
+          <img src="https://images.unsplash.com/photo-1517077304055-6e89abbf09b0?auto=format&fit=crop&q=80&w=800" alt="Hardware Stack" />
+          <div class="floating-badge" style="color: #ef4444"><i class="fas fa-microchip"></i> Physical Tech</div>
+        </div>
+      </section>
+
+      <!-- Slide 7: Manajemen Waktu -->
+      <section class="slide reveal">
+        <div class="content-box">
+          <h2>Seni Mengatur <br /><span class="gradient-text">Waktu</span></h2>
+          <p>Banyak yang bertanya, "Bagaimana cara membagi waktu antara sekolah penuh waktu di MAN 1 Magelang dan hobi pemrograman yang memakan waktu?" Jawabannya adalah prioritas dan pengorbanan.</p>
           <p>
-            Anda telah membaca kisah perjalanan, minat, pola pikir, dan visi saya untuk masa depan. Semua pengetahuan, keahlian coding, dan eksperimen IoT ini tidak akan berarti jika tidak digunakan untuk membangun kolaborasi yang berdampak
-            besar. Saya percaya bahwa ide hebat adalah hasil dari penyatuan dua pemikiran atau lebih.
+            Saya memanfaatkan akhir pekan atau jam-jam hening di malam hari (seperti saat ini) untuk larut dalam dunia kode. Ketika sekolah sedang padat tugas, papan sirkuit saya istirahatkan sejenak. Fleksibilitas inilah yang menjaga
+            kewarasan pikiran saya.
           </p>
+        </div>
+        <div class="image-box">
+          <img src="https://images.unsplash.com/photo-1506784365847-bbad939e9335?auto=format&fit=crop&q=80&w=800" alt="Time Management" />
+        </div>
+      </section>
+
+      <!-- Slide 8: Proses Kreatif -->
+      <section class="slide reveal">
+        <div class="content-box">
+          <h2>Proses <br /><span class="gradient-text">Kreatif</span></h2>
+          <p>Setiap mahakarya berawal dari kertas kosong. Proses kreatif saya biasanya dimulai secara analog. Saya gemar mencoret-coret kerangka website (wireframe) atau skema kelistrikan di atas kertas sebelum menyentuh *keyboard*.</p>
+          <p>Pemetaan visual ini membantu otak saya menyusun struktur logika yang kokoh. Jika logikanya sudah beres di atas kertas, proses penulisan kode di komputer akan mengalir jauh lebih cepat dan minim *error*.</p>
+        </div>
+        <div class="image-box">
+          <img src="https://images.unsplash.com/photo-1586281380349-632531db7ed4?auto=format&fit=crop&q=80&w=800" alt="Creative Sketching" />
+          <div class="floating-badge" style="color: #ec4899"><i class="fas fa-pencil-ruler"></i> Brainstorming</div>
+        </div>
+      </section>
+
+      <!-- Slide 9: Sikap Terhadap Kegagalan -->
+      <section class="slide reveal">
+        <div class="content-box">
+          <h2>Berdamai dengan <br /><span class="gradient-text">Bugs & Error</span></h2>
+          <p>Dulu, barisan pesan <i>error</i> berwarna merah di layar membuat saya frustrasi. Sekarang, saya menganggapnya sebagai teka-teki. Kegagalan adalah bagian dari siklus pengembangan (Development Cycle) yang tak terpisahkan.</p>
+          <p>Sikap keras kepala dalam hal positif—yakni terus mencoba kombinasi logika baru hingga alat berfungsi semestinya—adalah *soft-skill* terbesar yang ditempa secara tidak langsung dari hobi ini.</p>
+        </div>
+        <div class="image-box">
+          <img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&q=80&w=800" alt="Code Debugging" />
+        </div>
+      </section>
+
+      <!-- Slide 10: Visi & Harapan -->
+      <section class="slide reveal">
+        <div class="content-box">
+          <h2>Harapan ke <br /><span class="gradient-text">Depan</span></h2>
+          <p>Lalu, apa selanjutnya untuk Faras? Tujuan jangka panjang saya adalah menjembatani kesenjangan antara perangkat keras usang dan teknologi *cloud* modern.</p>
           <p>
-            Apakah Anda memiliki ide start-up, proyek elektronika tugas akhir yang terhenti, atau sekadar ingin menyapa sesama pecinta teknologi? Mari kita diskusikan. Tekan tombol kontak di bawah ini, dan mari kita ubah kata-kata dan
-            angan-angan menjadi baris kode yang berfungsi secara nyata!
+            Saya bermimpi bisa merancang solusi IoT yang terjangkau bagi petani lokal atau sekolah-sekolah, membuktikan bahwa teknologi canggih tidak melulu harus mahal, selama kita memiliki ilmu pengetahuan untuk membangunnya dari nol.
+          </p>
+        </div>
+        <div class="image-box">
+          <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=800" alt="Future Goal" />
+          <div class="floating-badge"><i class="fas fa-globe"></i> Global Impact</div>
+        </div>
+      </section>
+
+      <!-- Slide 11: Call to Action -->
+      <section class="slide reveal">
+        <div class="content-box" style="text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: center">
+          <h2 style="margin-bottom: 15px">Mari Bertukar <br /><span class="gradient-text">Gagasan!</span></h2>
+          <p style="max-width: 600px; margin: 0 auto 25px auto">
+            Apakah Anda memiliki minat yang sama? Atau sedang mengerjakan proyek sekolah yang menemui jalan buntu? Jangan ragu untuk menyapa saya. Saya sangat menghargai komunitas yang kolaboratif.
           </p>
           <a
             href="contact.html"
-            class="clickable-card"
-            style="display: inline-block; background: #00dfa2; color: #050508; padding: 15px 45px; border-radius: 50px; font-weight: 800; font-family: 'Orbitron'; margin-top: 15px; box-shadow: 0 0 20px rgba(0, 223, 162, 0.4)"
-          >
-            HUBUNGI FARAS
-          </a>
+            style="
+              display: inline-block;
+              padding: 15px 40px;
+              background: linear-gradient(45deg, var(--primary), var(--accent));
+              color: #fff;
+              text-decoration: none;
+              border-radius: 50px;
+              font-weight: 700;
+              font-size: 1.1rem;
+              box-shadow: 0 10px 20px rgba(59, 130, 246, 0.3);
+              transition: 0.3s;
+            "
+            >Hubungi Faras Sekarang <i class="fas fa-arrow-right" style="margin-left: 10px"></i
+          ></a>
         </div>
       </section>
     </main>
 
-    <!-- ENGINE JAVASCRIPT UNTUK SCROLL REVEAL -->
+    <!-- SCRIPT ANIMASI & MENU -->
     <script>
-      function reveal() {
-        var reveals = document.querySelectorAll('.scroll-reveal');
-        for (var i = 0; i < reveals.length; i++) {
-          var windowHeight = window.innerHeight;
-          var elementTop = reveals[i].getBoundingClientRect().top;
-          var elementVisible = 100; // Trigger agar animasi halus
+      // --- HAMBURGER MENU ---
+      const menuToggle = document.getElementById('menuToggle');
+      const sideMenu = document.getElementById('sideMenu');
+      const overlay = document.getElementById('overlay');
+      const icon = menuToggle.querySelector('i');
 
+      function toggleMenu() {
+        sideMenu.classList.toggle('active');
+        overlay.classList.toggle('active');
+        if (sideMenu.classList.contains('active')) {
+          icon.classList.remove('fa-bars');
+          icon.classList.add('fa-times');
+        } else {
+          icon.classList.remove('fa-times');
+          icon.classList.add('fa-bars');
+        }
+      }
+
+      menuToggle.addEventListener('click', toggleMenu);
+      overlay.addEventListener('click', toggleMenu);
+
+      // --- LOGIKA SCROLL REVEAL & SKILL BAR ANIMATION ---
+      function reveal() {
+        var reveals = document.querySelectorAll('.reveal');
+        var skillBars = document.querySelectorAll('.skill-bar-fill');
+        var windowHeight = window.innerHeight;
+
+        // Reveal Slide Umum
+        for (var i = 0; i < reveals.length; i++) {
+          var elementTop = reveals[i].getBoundingClientRect().top;
+          var elementVisible = 120;
           if (elementTop < windowHeight - elementVisible) {
             reveals[i].classList.add('active');
-          } else {
-            reveals[i].classList.remove('active');
+          }
+        }
+
+        // Reveal Progress Bar
+        for (var j = 0; j < skillBars.length; j++) {
+          var barTop = skillBars[j].getBoundingClientRect().top;
+          if (barTop < windowHeight - 50) {
+            // Ambil lebar dari atribut data-width dan terapkan ke style CSS
+            skillBars[j].style.width = skillBars[j].getAttribute('data-width');
           }
         }
       }
+
       window.addEventListener('scroll', reveal);
       window.addEventListener('DOMContentLoaded', reveal);
     </script>
