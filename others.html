@@ -2,27 +2,27 @@
 <html lang="id">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <title>Others & Games | Faras Portfolio</title>
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Fredoka+One&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Jura:wght@600;700&display=swap" rel="stylesheet" />
     <!-- FontAwesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 
     <style>
       /* --- VARIABEL WARNA & TEMA --- */
       :root {
-        --bg-gradient-1: #ffb7b2; /* Sedikit lebih playful */
-        --bg-gradient-2: #e2f0cb;
-        --bg-gradient-3: #c7ceea;
-        --text-dark: #1e293b;
-        --text-light: #64748b;
-        --primary: #8b5cf6;
-        --accent: #ec4899;
-        --glass-bg: rgba(255, 255, 255, 0.65);
-        --glass-border: rgba(255, 255, 255, 0.5);
+        --bg-dark: #0f172a;
+        --bg-gradient-1: #1e1b4b;
+        --bg-gradient-2: #312e81;
+        --text-dark: #f8fafc;
+        --text-light: #94a3b8;
+        --primary: #38bdf8;
+        --accent: #f472b6;
+        --glass-bg: rgba(30, 41, 59, 0.7);
+        --glass-border: rgba(255, 255, 255, 0.1);
       }
 
       * {
@@ -33,64 +33,12 @@
       }
 
       body {
-        background: linear-gradient(135deg, #fdfbfb 0%, #f4f4f8 100%);
+        background: radial-gradient(circle at center, var(--bg-gradient-2) 0%, var(--bg-dark) 100%);
         color: var(--text-dark);
         overflow-x: hidden;
         min-height: 100vh;
         display: flex;
         flex-direction: column;
-      }
-
-      /* --- ANIMASI LATAR BELAKANG LUCU (BLOBS) --- */
-      .blob {
-        position: fixed;
-        filter: blur(60px);
-        z-index: -2;
-        opacity: 0.7;
-        animation: floatBlob 15s infinite alternate ease-in-out;
-      }
-      .blob-1 {
-        top: -5%;
-        left: -10%;
-        width: 40vw;
-        height: 40vw;
-        background: var(--bg-gradient-1);
-        border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
-      }
-      .blob-2 {
-        bottom: -10%;
-        right: -10%;
-        width: 50vw;
-        height: 50vw;
-        background: var(--bg-gradient-3);
-        border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
-        animation-delay: -3s;
-      }
-      .blob-3 {
-        top: 40%;
-        left: 40%;
-        width: 30vw;
-        height: 30vw;
-        background: var(--bg-gradient-2);
-        border-radius: 50%;
-        animation: pulseBlob 10s infinite alternate;
-      }
-
-      @keyframes floatBlob {
-        0% {
-          transform: translate(0, 0) rotate(0deg) scale(1);
-        }
-        100% {
-          transform: translate(100px, 50px) rotate(180deg) scale(1.1);
-        }
-      }
-      @keyframes pulseBlob {
-        0% {
-          transform: scale(0.8);
-        }
-        100% {
-          transform: scale(1.2);
-        }
       }
 
       /* --- HEADER & HAMBURGER MENU --- */
@@ -100,7 +48,7 @@
         left: 0;
         width: 100%;
         height: 70px;
-        background: rgba(255, 255, 255, 0.7);
+        background: rgba(15, 23, 42, 0.8);
         backdrop-filter: blur(15px);
         -webkit-backdrop-filter: blur(15px);
         border-bottom: 1px solid var(--glass-border);
@@ -123,8 +71,7 @@
       }
       .menu-btn:hover {
         color: var(--primary);
-        transform: scale(1.2) rotate(10deg);
-      } /* Efek lucu miring */
+      }
       .logo {
         font-size: 1.3rem;
         font-weight: 700;
@@ -140,9 +87,9 @@
         left: -300px;
         width: 280px;
         height: 100vh;
-        background: rgba(255, 255, 255, 0.95);
+        background: rgba(15, 23, 42, 0.95);
         backdrop-filter: blur(20px);
-        box-shadow: 5px 0 30px rgba(0, 0, 0, 0.1);
+        box-shadow: 5px 0 30px rgba(0, 0, 0, 0.5);
         z-index: 999;
         display: flex;
         flex-direction: column;
@@ -158,15 +105,15 @@
         font-size: 1.2rem;
         font-weight: 600;
         padding: 15px 0;
-        border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        border-bottom: 1px solid var(--glass-border);
         transition: 0.3s;
         display: flex;
         align-items: center;
         gap: 15px;
       }
       .side-menu a:hover {
-        color: var(--accent);
-        transform: translateX(10px) scale(1.05);
+        color: var(--primary);
+        transform: translateX(10px);
       }
 
       .overlay {
@@ -175,7 +122,7 @@
         left: 0;
         width: 100%;
         height: 100vh;
-        background: rgba(0, 0, 0, 0.4);
+        background: rgba(0, 0, 0, 0.6);
         opacity: 0;
         visibility: hidden;
         z-index: 998;
@@ -192,6 +139,7 @@
         max-width: 1200px;
         margin: 0 auto;
         flex: 1;
+        width: 100%;
       }
 
       .header-title {
@@ -199,10 +147,11 @@
         margin-bottom: 40px;
       }
       .header-title h1 {
-        font-family: 'Fredoka One', cursive, sans-serif;
+        font-family: 'Jura', sans-serif;
         font-size: 3.5rem;
-        letter-spacing: 1px;
-        color: var(--primary);
+        letter-spacing: 2px;
+        color: var(--text-dark);
+        text-shadow: 0 0 20px rgba(56, 189, 248, 0.5);
       }
       .header-title p {
         font-size: 1.1rem;
@@ -221,301 +170,181 @@
         transform: translateY(0);
       }
 
-      /* --- KARTU LUCU (WIGGLE EFFECT PADA HOVER) --- */
-      .fun-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-        gap: 30px;
-        margin-bottom: 60px;
-      }
-      .fun-card {
-        background: var(--glass-bg);
-        backdrop-filter: blur(12px);
-        border: 2px dashed var(--accent);
-        border-radius: 24px;
-        padding: 30px;
-        text-align: center;
-        cursor: pointer;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-        transition: 0.3s;
-      }
-      .fun-card:hover {
-        animation: wiggle 0.5s ease-in-out infinite alternate; /* Bergoyang kelucuan */
-        box-shadow: 0 15px 40px rgba(236, 72, 153, 0.3);
-        background: rgba(255, 255, 255, 0.9);
-      }
-      .fun-icon {
-        font-size: 4rem;
-        margin-bottom: 15px;
-        display: inline-block;
-      }
-      .fun-card:hover .fun-icon {
-        animation: bounceIcon 0.5s infinite alternate;
-      }
-
-      @keyframes wiggle {
-        0% {
-          transform: rotate(0deg);
-        }
-        25% {
-          transform: rotate(-3deg);
-        }
-        50% {
-          transform: rotate(0deg);
-        }
-        75% {
-          transform: rotate(3deg);
-        }
-        100% {
-          transform: rotate(0deg);
-        }
-      }
-      @keyframes bounceIcon {
-        0% {
-          transform: translateY(0);
-        }
-        100% {
-          transform: translateY(-15px) scale(1.1);
-        }
-      }
-
-      /* --- AREA MINI GAME "PROGRAMMER RUN" --- */
-      .game-container-wrapper {
-        background: var(--glass-bg);
-        backdrop-filter: blur(15px);
-        border: 1px solid var(--glass-border);
-        border-radius: 30px;
-        padding: 20px;
-        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+      /* --- GAME CONTAINER (ADVANCED) --- */
+      .game-wrapper {
+        width: 100%;
+        max-width: 900px;
         margin: 0 auto 50px auto;
-        max-width: 800px;
-        text-align: center;
+        background: #000;
+        border: 1px solid rgba(56, 189, 248, 0.3);
+        border-radius: 20px;
+        overflow: hidden;
         position: relative;
+        box-shadow:
+          0 20px 50px rgba(0, 0, 0, 0.5),
+          0 0 30px rgba(56, 189, 248, 0.1);
       }
-      .game-header {
+
+      .game-ui-header {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        padding: 15px 25px;
         display: flex;
         justify-content: space-between;
         align-items: center;
-        margin-bottom: 15px;
-        padding: 0 20px;
+        z-index: 10;
+        pointer-events: none;
       }
-      .game-header h2 {
-        font-family: 'Fredoka One', cursive;
-        font-size: 1.8rem;
+      .game-ui-header h2 {
+        font-family: 'Jura', sans-serif;
         color: var(--primary);
+        font-size: 1.5rem;
+        text-shadow: 0 0 10px var(--primary);
       }
       .game-stats {
+        font-family: 'Jura', sans-serif;
+        color: white;
         font-size: 1.2rem;
-        font-weight: 700;
-        color: var(--accent);
         display: flex;
         gap: 20px;
       }
 
-      /* Canvas DOM Game */
-      #gameArea {
+      /* Canvas Element */
+      #gameCanvas {
+        display: block;
         width: 100%;
-        height: 400px;
-        background: linear-gradient(to bottom, #8ec5fc, #e0c3fc);
-        border-radius: 20px;
-        position: relative;
-        overflow: hidden;
-        cursor: crosshair;
-        box-shadow: inset 0 5px 20px rgba(0, 0, 0, 0.2);
-        touch-action: none; /* Mencegah scroll layar saat main di HP */
+        height: 500px;
+        background: radial-gradient(circle at center, #111 0%, #000 100%);
+        touch-action: none; /* Cegah scroll saat main di HP */
       }
 
-      /* Pemain (Karakter) */
-      #player {
-        position: absolute;
-        bottom: 10px;
-        left: 50%;
-        width: 60px;
-        height: 60px;
-        transform: translateX(-50%);
-        font-size: 3.5rem;
-        line-height: 1;
-        transition: left 0.1s ease-out;
-        z-index: 10;
-        user-select: none;
-      }
-
-      /* Item yang jatuh */
-      .falling-item {
-        position: absolute;
-        top: -50px;
-        font-size: 2.5rem;
-        user-select: none;
-        animation: spinItem 3s linear infinite;
-      }
-      @keyframes spinItem {
-        100% {
-          transform: rotate(360deg);
-        }
-      }
-      .falling-item.no-spin {
-        animation: none;
-      } /* Bug nggak usah muter */
-
-      /* Overlay Start / Game Over */
-      #gameOverlay {
+      /* Game Over / Start Menu */
+      #gameMenu {
         position: absolute;
         top: 0;
         left: 0;
         width: 100%;
         height: 100%;
-        background: rgba(255, 255, 255, 0.85);
-        backdrop-filter: blur(5px);
+        background: rgba(0, 0, 0, 0.7);
+        backdrop-filter: blur(8px);
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        border-radius: 20px;
         z-index: 20;
         transition: 0.3s;
       }
-      #gameOverlay h3 {
-        font-family: 'Fredoka One', cursive;
-        font-size: 2.5rem;
-        color: var(--text-dark);
+      #gameMenu h3 {
+        font-family: 'Jura', sans-serif;
+        font-size: 3rem;
+        color: white;
+        text-shadow: 0 0 15px var(--accent);
         margin-bottom: 10px;
+        text-align: center;
       }
-      #gameOverlay p {
+      #gameMenu p {
         font-size: 1.1rem;
-        margin-bottom: 20px;
-        color: var(--text-light);
+        color: #ccc;
+        margin-bottom: 25px;
+        text-align: center;
+        max-width: 80%;
       }
       #startBtn {
-        background: linear-gradient(45deg, var(--primary), var(--accent));
-        color: white;
-        border: none;
+        background: transparent;
+        color: var(--primary);
+        border: 2px solid var(--primary);
         padding: 15px 40px;
-        font-size: 1.5rem;
+        font-size: 1.2rem;
         font-weight: bold;
-        font-family: 'Fredoka One', cursive;
-        border-radius: 50px;
+        font-family: 'Jura', sans-serif;
+        border-radius: 8px;
         cursor: pointer;
-        box-shadow: 0 10px 20px rgba(236, 72, 153, 0.4);
-        transition:
-          transform 0.2s,
-          box-shadow 0.2s;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        box-shadow:
+          0 0 15px rgba(56, 189, 248, 0.2) inset,
+          0 0 15px rgba(56, 189, 248, 0.4);
+        transition: 0.3s;
       }
       #startBtn:hover {
-        transform: scale(1.1);
-        box-shadow: 0 15px 30px rgba(236, 72, 153, 0.6);
+        background: var(--primary);
+        color: #000;
+        box-shadow: 0 0 30px var(--primary);
       }
 
-      /* --- FOOTER COPYRIGHT TRANSPARAN --- */
+      /* --- FOOTER --- */
       footer {
         text-align: center;
         padding: 20px;
         font-size: 0.9rem;
         font-weight: 600;
-        color: var(--text-dark);
-        opacity: 0.4; /* Efek transparan */
+        color: var(--text-light);
         width: 100%;
         margin-top: auto;
-        letter-spacing: 1px;
-        transition: opacity 0.3s;
-      }
-      footer:hover {
-        opacity: 0.8;
       }
 
-      /* --- RESPONSIVE --- */
       @media (max-width: 768px) {
         .header-title h1 {
           font-size: 2.5rem;
         }
-        .game-header {
-          flex-direction: column;
-          gap: 10px;
+        #gameCanvas {
+          height: 400px;
         }
-        #gameArea {
-          height: 350px;
+        #gameMenu h3 {
+          font-size: 2rem;
         }
       }
     </style>
   </head>
   <body>
-    <!-- Animasi Blobs Latar Belakang -->
-    <div class="blob blob-1"></div>
-    <div class="blob blob-2"></div>
-    <div class="blob blob-3"></div>
-
-    <!-- Header -->
     <header>
       <div class="menu-left">
         <div class="menu-btn" id="menuToggle"><i class="fas fa-bars"></i></div>
-        <div class="logo">FARAS<span style="color: var(--accent)">.</span></div>
+        <div class="logo">FARAS<span style="color: var(--primary)">.</span></div>
       </div>
     </header>
 
-    <!-- Drawer Navigasi -->
     <nav class="side-menu" id="sideMenu">
       <a href="index.html"><i class="fas fa-home"></i> Home</a>
       <a href="lanyard.html"><i class="fas fa-id-badge"></i> Lanyard</a>
       <a href="about.html"><i class="fas fa-user-astronaut"></i> About</a>
       <a href="contact.html"><i class="fas fa-paper-plane"></i> Contact</a>
+      <a href="minigame/index.html"><i class="fas fa-layer-group"></i> GAME</a>
     </nav>
     <div class="overlay" id="overlay"></div>
 
     <main>
-      <!-- Header Judul Lucu -->
       <div class="header-title reveal">
-        <h1>Ruang <span style="color: var(--accent)">Bermain!</span> 🕹️</h1>
-        <p>Selamat datang di dimensi lain portofolio saya! Bagian ini berisi hal-hal *random*, eksperimen lucu, dan kode yang dibuat untuk bersenang-senang.</p>
+        <h1>NEON <span style="color: var(--primary)">SYSTEM</span></h1>
+        <p>Eksplorasi gravitasi, partikel, dan simulasi berbasis fisika menggunakan HTML5 Canvas rendering.</p>
       </div>
 
-      <!-- Kartu Hobi/Random -->
-      <div class="fun-grid">
-        <div class="fun-card reveal" data-delay="100">
-          <div class="fun-icon">🎧</div>
-          <h3>Music Lo-Fi</h3>
-          <p>Bahan bakar utama saya saat coding di malam hari.</p>
-        </div>
-        <div class="fun-card reveal" data-delay="200">
-          <div class="fun-icon">🐈</div>
-          <h3>Pecinta Kucing</h3>
-          <p>Pengawas setia yang suka tidur di atas *keyboard*.</p>
-        </div>
-        <div class="fun-card reveal" data-delay="300">
-          <div class="fun-icon">🍕</div>
-          <h3>Sistem Kebut Semalam</h3>
-          <p>Bug akan hilang dengan sendirinya setelah sepotong pizza.</p>
-        </div>
-      </div>
-
-      <!-- MINI GAME SECTION -->
-      <section class="game-container-wrapper reveal" data-delay="400">
-        <div class="game-header">
-          <h2>Serangan Bug! 🐛</h2>
+      <!-- ADVANCED CANVAS GAME SECTION -->
+      <section class="game-wrapper reveal" data-delay="200">
+        <div class="game-ui-header">
+          <h2>NEON DODGE</h2>
           <div class="game-stats">
-            <span id="scoreDisplay">Skor: 0</span>
-            <span id="livesDisplay">Nyawa: ❤️❤️❤️</span>
+            <span id="scoreDisplay">Score: 0</span>
+            <span id="healthDisplay" style="color: var(--accent)">HP: 100%</span>
           </div>
         </div>
 
-        <div id="gameArea">
-          <!-- Karakter Utama -->
-          <div id="player">👨‍💻</div>
+        <canvas id="gameCanvas"></canvas>
 
-          <!-- Layar Mulai / Game Over -->
-          <div id="gameOverlay">
-            <h3 id="overlayTitle">Bantu Faras Coding!</h3>
-            <p id="overlayDesc">Geser kursor/jari untuk menangkap Kopi ☕ dan Pizza 🍕.<br />HINDARI BUGS 🐛!</p>
-            <button id="startBtn">MAINKAN! 🚀</button>
-          </div>
+        <div id="gameMenu">
+          <h3 id="menuTitle">SYSTEM READY</h3>
+          <p id="menuDesc">Gunakan Mouse atau Sentuh Layar untuk menggerakkan pesawat. Hindari meteor neon merah.</p>
+          <button id="startBtn">INITIATE LAUNCH</button>
         </div>
       </section>
     </main>
 
-    <!-- Copyright Transparan di paling akhir -->
-    <footer>&copy; 2026 Muhammad Rizqi Faras Abyadh. Built with fun and lots of ☕.</footer>
+    <footer>&copy; 2026 Muhammad Rizqi Faras Abyadh. Built with Advanced JS Canvas.</footer>
 
-    <!-- SCRIPT (UI & LOGIKA GAME) -->
     <script>
-      // --- 1. LOGIKA HAMBURGER MENU ---
+      // --- MENU LOGIC ---
       const menuToggle = document.getElementById('menuToggle');
       const sideMenu = document.getElementById('sideMenu');
       const overlay = document.getElementById('overlay');
@@ -524,205 +353,290 @@
       function toggleMenu() {
         sideMenu.classList.toggle('active');
         overlay.classList.toggle('active');
-        if (sideMenu.classList.contains('active')) {
-          icon.classList.remove('fa-bars');
-          icon.classList.add('fa-times');
-        } else {
-          icon.classList.remove('fa-times');
-          icon.classList.add('fa-bars');
-        }
+        icon.className = sideMenu.classList.contains('active') ? 'fas fa-times' : 'fas fa-bars';
       }
       menuToggle.addEventListener('click', toggleMenu);
       overlay.addEventListener('click', toggleMenu);
 
-      // --- 2. LOGIKA MUNCUL PERLAHAN (REVEAL) ---
       function reveal() {
-        var reveals = document.querySelectorAll('.reveal');
-        for (var i = 0; i < reveals.length; i++) {
-          var delay = reveals[i].getAttribute('data-delay');
-          if (delay) reveals[i].style.transitionDelay = delay + 'ms';
-          // Munculkan semua karena halaman ini pendek
-          reveals[i].classList.add('active');
-        }
+        document.querySelectorAll('.reveal').forEach((el) => el.classList.add('active'));
       }
       window.addEventListener('DOMContentLoaded', reveal);
 
-      // --- 3. LOGIKA MINI GAME "PROGRAMMER RUN" ---
-      const gameArea = document.getElementById('gameArea');
-      const player = document.getElementById('player');
-      const overlayGame = document.getElementById('gameOverlay');
+      // --- ADVANCED CANVAS ENGINE ---
+      const canvas = document.getElementById('gameCanvas');
+      const ctx = canvas.getContext('2d');
+      const menu = document.getElementById('gameMenu');
       const startBtn = document.getElementById('startBtn');
-      const scoreDisplay = document.getElementById('scoreDisplay');
-      const livesDisplay = document.getElementById('livesDisplay');
-      const titleGame = document.getElementById('overlayTitle');
-      const descGame = document.getElementById('overlayDesc');
+      const scoreEl = document.getElementById('scoreDisplay');
+      const healthEl = document.getElementById('healthDisplay');
+      const menuTitle = document.getElementById('menuTitle');
+      const menuDesc = document.getElementById('menuDesc');
 
-      // State Game
+      // Set Canvas Size (Responsive)
+      function resizeCanvas() {
+        const rect = canvas.parentElement.getBoundingClientRect();
+        canvas.width = rect.width;
+        canvas.height = rect.height || 500;
+      }
+      window.addEventListener('resize', resizeCanvas);
+      resizeCanvas();
+
+      // Game Variables
       let isPlaying = false;
       let score = 0;
-      let lives = 3;
-      let gameInterval;
-      let spawnInterval;
-      let items = []; // Menyimpan elemen yang sedang jatuh
-      let speedMultiplier = 1; // Semakin lama semakin cepat
+      let animationId;
+      let frameCount = 0;
 
-      // Variabel Tipe Item (Emoji, Point/Efek, Kelas)
-      const itemTypes = [
-        { char: '☕', type: 'good', points: 10 },
-        { char: '🍕', type: 'good', points: 20 },
-        { char: '💡', type: 'good', points: 15 },
-        { char: '🐛', type: 'bad', points: -1 }, // Bug ngurangin nyawa
-        { char: '🐛', type: 'bad', points: -1 }, // Munculin bug lebih sering
-        { char: '❌', type: 'bad', points: -1 }, // Error juga ngurangin nyawa
-      ];
+      // Mouse/Touch input
+      const mouse = { x: canvas.width / 2, y: canvas.height - 50 };
 
-      // Kontrol Pemain (Mouse & Touch)
-      function movePlayer(e) {
+      function updateMousePos(e) {
         if (!isPlaying) return;
-        let rect = gameArea.getBoundingClientRect();
-        let clientX = e.touches ? e.touches[0].clientX : e.clientX;
-        let x = clientX - rect.left;
+        const rect = canvas.getBoundingClientRect();
+        const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+        const clientY = e.touches ? e.touches[0].clientY : e.clientY;
+        mouse.x = clientX - rect.left;
+        mouse.y = clientY - rect.top;
+      }
+      canvas.addEventListener('mousemove', updateMousePos);
+      canvas.addEventListener(
+        'touchmove',
+        (e) => {
+          e.preventDefault();
+          updateMousePos(e);
+        },
+        { passive: false },
+      );
 
-        // Batas kiri dan kanan agar pemain tidak keluar area
-        if (x < 30) x = 30;
-        if (x > rect.width - 30) x = rect.width - 30;
+      // --- CLASSES ---
 
-        player.style.left = x + 'px';
+      class Player {
+        constructor() {
+          this.x = canvas.width / 2;
+          this.y = canvas.height - 80;
+          this.size = 15;
+          this.health = 100;
+          this.color = '#38bdf8';
+        }
+        draw() {
+          ctx.save();
+          // Efek Cahaya (Glow)
+          ctx.shadowBlur = 20;
+          ctx.shadowColor = this.color;
+          ctx.beginPath();
+          // Menggambar bentuk pesawat (Segitiga futuristik)
+          ctx.moveTo(this.x, this.y - this.size * 1.5); // Ujung atas
+          ctx.lineTo(this.x + this.size, this.y + this.size); // Kanan bawah
+          ctx.lineTo(this.x, this.y + this.size / 2); // Cekungan tengah
+          ctx.lineTo(this.x - this.size, this.y + this.size); // Kiri bawah
+          ctx.closePath();
+          ctx.fillStyle = this.color;
+          ctx.fill();
+          ctx.restore();
+        }
+        update() {
+          // Fisika Inersia (Lerp - Linear Interpolation) untuk pergerakan mulus
+          this.x += (mouse.x - this.x) * 0.1;
+          this.y += (mouse.y - this.y) * 0.1;
+
+          // Batas layar
+          if (this.x < this.size) this.x = this.size;
+          if (this.x > canvas.width - this.size) this.x = canvas.width - this.size;
+          if (this.y < this.size) this.y = this.size;
+          if (this.y > canvas.height - this.size) this.y = canvas.height - this.size;
+
+          this.draw();
+        }
       }
 
-      gameArea.addEventListener('mousemove', movePlayer);
-      gameArea.addEventListener('touchmove', function (e) {
-        e.preventDefault(); // Mencegah layar ter-scroll saat geser hero
-        movePlayer(e);
-      });
-
-      // Fungsi membuat item baru jatuh dari atas
-      function spawnItem() {
-        if (!isPlaying) return;
-
-        let randomType = itemTypes[Math.floor(Math.random() * itemTypes.length)];
-        let el = document.createElement('div');
-        el.innerText = randomType.char;
-        el.classList.add('falling-item');
-        if (randomType.type === 'bad') el.classList.add('no-spin'); // Bug tidak muter
-
-        // Posisi awal acak
-        let rect = gameArea.getBoundingClientRect();
-        let randomX = Math.floor(Math.random() * (rect.width - 40));
-        el.style.left = randomX + 'px';
-        el.style.top = '-50px';
-
-        gameArea.appendChild(el);
-
-        items.push({
-          element: el,
-          y: -50,
-          speed: (Math.random() * 3 + 2) * speedMultiplier, // Kecepatan jatuh acak
-          data: randomType,
-        });
-      }
-
-      // Looping utama Game Engine
-      function updateGame() {
-        if (!isPlaying) return;
-
-        let rect = gameArea.getBoundingClientRect();
-        let playerRect = player.getBoundingClientRect();
-
-        // Loop backwards karena kita mungkin menghapus elemen dari array
-        for (let i = items.length - 1; i >= 0; i--) {
-          let item = items[i];
-          item.y += item.speed; // Turunkan posisi
-          item.element.style.top = item.y + 'px';
-
-          let itemRect = item.element.getBoundingClientRect();
-
-          // Deteksi Tabrakan (Collision Detection)
-          if (itemRect.left < playerRect.right && itemRect.right > playerRect.left && itemRect.top < playerRect.bottom && itemRect.bottom > playerRect.top) {
-            // Jika Tertangkap
-            if (item.data.type === 'good') {
-              score += item.data.points;
-              // Animasi tangkap lucu (kelihatan mantul)
-              player.style.transform = 'translateX(-50%) scale(1.3)';
-              setTimeout(() => {
-                if (isPlaying) player.style.transform = 'translateX(-50%) scale(1)';
-              }, 100);
-            } else {
-              // Kena Bug!
-              lives -= 1;
-              player.innerText = '😵'; // Berubah pusing
-              player.style.transform = 'translateX(-50%) rotate(15deg)';
-              setTimeout(() => {
-                if (isPlaying) {
-                  player.innerText = '👨‍💻';
-                  player.style.transform = 'translateX(-50%) rotate(0deg)';
-                }
-              }, 300);
-            }
-
-            // Hapus elemen dari layar & array
-            item.element.remove();
-            items.splice(i, 1);
-            updateStats();
-
-            // Cek Game Over
-            if (lives <= 0) gameOver();
-            continue;
+      class Asteroid {
+        constructor() {
+          this.size = Math.random() * 20 + 10;
+          this.x = Math.random() * canvas.width;
+          this.y = -this.size;
+          this.speed = Math.random() * 3 + score * 0.005 + 2; // Makin lama makin cepat
+          this.color = '#f472b6'; // Merah neon
+          this.angle = Math.random() * Math.PI * 2;
+          this.spin = (Math.random() - 0.5) * 0.1;
+          this.vertices = Math.floor(Math.random() * 3) + 5; // Bentuk poligon acak
+        }
+        draw() {
+          ctx.save();
+          ctx.translate(this.x, this.y);
+          ctx.rotate(this.angle);
+          ctx.shadowBlur = 15;
+          ctx.shadowColor = this.color;
+          ctx.beginPath();
+          for (let i = 0; i < this.vertices; i++) {
+            const a = ((Math.PI * 2) / this.vertices) * i;
+            const r = this.size * (0.8 + Math.random() * 0.2); // Membuat tidak beraturan
+            ctx.lineTo(Math.cos(a) * r, Math.sin(a) * r);
           }
+          ctx.closePath();
+          ctx.strokeStyle = this.color;
+          ctx.lineWidth = 2;
+          ctx.stroke();
+          ctx.fillStyle = 'rgba(244, 114, 182, 0.1)';
+          ctx.fill();
+          ctx.restore();
+        }
+        update() {
+          this.y += this.speed;
+          this.angle += this.spin;
+          this.draw();
+        }
+      }
 
-          // Jika item terlewat dan jatuh ke bawah (hilang)
-          if (item.y > rect.height) {
-            item.element.remove();
-            items.splice(i, 1);
+      // Sistem Partikel untuk Ledakan
+      class Particle {
+        constructor(x, y, color) {
+          this.x = x;
+          this.y = y;
+          const velocity = Math.random() * 5 + 2;
+          const angle = Math.random() * Math.PI * 2;
+          this.vx = Math.cos(angle) * velocity;
+          this.vy = Math.sin(angle) * velocity;
+          this.size = Math.random() * 3 + 1;
+          this.color = color;
+          this.alpha = 1;
+        }
+        draw() {
+          ctx.save();
+          ctx.globalAlpha = this.alpha;
+          ctx.shadowBlur = 10;
+          ctx.shadowColor = this.color;
+          ctx.fillStyle = this.color;
+          ctx.beginPath();
+          ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+          ctx.fill();
+          ctx.restore();
+        }
+        update() {
+          this.x += this.vx;
+          this.y += this.vy;
+          this.alpha -= 0.02; // Menghilang perlahan
+          this.draw();
+        }
+      }
+
+      // Arrays
+      let player;
+      let asteroids = [];
+      let particles = [];
+
+      // Fungsi Spawn Ledakan
+      function createExplosion(x, y, color, amount) {
+        for (let i = 0; i < amount; i++) {
+          particles.push(new Particle(x, y, color));
+        }
+      }
+
+      // Game Loop Utama
+      function animate() {
+        if (!isPlaying) return;
+        animationId = requestAnimationFrame(animate);
+
+        // Membersihkan layar dengan efek jejak (trail effect)
+        ctx.fillStyle = 'rgba(17, 17, 17, 0.3)';
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+        player.update();
+
+        // Mengatur tingkat kesulitan (Spawn Rate)
+        if (frameCount % Math.max(20, 60 - Math.floor(score / 100)) === 0) {
+          asteroids.push(new Asteroid());
+        }
+
+        // Update Partikel
+        for (let i = particles.length - 1; i >= 0; i--) {
+          if (particles[i].alpha <= 0) {
+            particles.splice(i, 1);
+          } else {
+            particles[i].update();
           }
         }
 
-        // Tingkatkan kesulitan seiring waktu berjalan
-        speedMultiplier += 0.0005;
+        // Update Asteroids & Deteksi Tabrakan
+        for (let i = asteroids.length - 1; i >= 0; i--) {
+          asteroids[i].update();
 
-        gameInterval = requestAnimationFrame(updateGame);
-      }
+          // Deteksi Tabrakan (Jarak antar lingkaran murni)
+          const dx = player.x - asteroids[i].x;
+          const dy = player.y - asteroids[i].y;
+          const distance = Math.sqrt(dx * dx + dy * dy);
 
-      function updateStats() {
-        scoreDisplay.innerText = `Skor: ${score}`;
-        let hearts = '';
-        for (let i = 0; i < lives; i++) hearts += '❤️';
-        livesDisplay.innerText = `Nyawa: ${hearts}`;
+          if (distance < player.size + asteroids[i].size) {
+            // Tabrakan Terjadi!
+            createExplosion(asteroids[i].x, asteroids[i].y, asteroids[i].color, 15);
+            player.health -= 20; // Kurangi HP
+            healthEl.innerText = `HP: ${player.health}%`;
+
+            // Efek guncangan kamera sederhana
+            canvas.style.transform = `translate(${Math.random() * 10 - 5}px, ${Math.random() * 10 - 5}px)`;
+            setTimeout(() => (canvas.style.transform = 'translate(0, 0)'), 50);
+
+            asteroids.splice(i, 1);
+
+            if (player.health <= 0) {
+              gameOver();
+            }
+            continue;
+          }
+
+          // Hapus Asteroid jika lewat layar dan tambah skor
+          if (asteroids[i].y > canvas.height + 50) {
+            asteroids.splice(i, 1);
+            score += 10;
+            scoreEl.innerText = `Score: ${score}`;
+          }
+        }
+
+        frameCount++;
       }
 
       function startGame() {
-        // Reset Variabel
-        isPlaying = true;
+        resizeCanvas();
+        player = new Player();
+        asteroids = [];
+        particles = [];
         score = 0;
-        lives = 3;
-        speedMultiplier = 1;
-        player.innerText = '👨‍💻';
-        updateStats();
+        frameCount = 0;
+        isPlaying = true;
 
-        // Bersihkan sisa item sebelumnya
-        items.forEach((item) => item.element.remove());
-        items = [];
+        scoreEl.innerText = `Score: 0`;
+        healthEl.innerText = `HP: 100%`;
 
-        overlayGame.style.opacity = '0';
-        setTimeout(() => (overlayGame.style.visibility = 'hidden'), 300);
+        menu.style.opacity = '0';
+        setTimeout(() => (menu.style.visibility = 'hidden'), 300);
 
-        // Mulai Loop
-        spawnInterval = setInterval(spawnItem, 800); // Munculin item tiap 0.8 detik
-        gameInterval = requestAnimationFrame(updateGame);
+        // Letakkan mouse/pesawat di tengah awal
+        mouse.x = canvas.width / 2;
+        mouse.y = canvas.height - 80;
+
+        animate();
       }
 
       function gameOver() {
         isPlaying = false;
-        clearInterval(spawnInterval);
-        cancelAnimationFrame(gameInterval);
+        cancelAnimationFrame(animationId);
+        createExplosion(player.x, player.y, player.color, 50); // Ledakan besar pesawat
 
-        titleGame.innerText = 'Sistem Meledak! 💥';
-        titleGame.style.color = 'red';
-        descGame.innerHTML = `Kamu dapet skor: <strong>${score}</strong><br>Banyak bug yang nggak tertangani.`;
-        startBtn.innerText = 'Coba Lagi 🔄';
+        // Render sisa ledakan sebelum berhenti total
+        let explodeInterval = setInterval(() => {
+          ctx.fillStyle = 'rgba(17, 17, 17, 0.3)';
+          ctx.fillRect(0, 0, canvas.width, canvas.height);
+          particles.forEach((p) => p.update());
+          if (particles.length === 0) clearInterval(explodeInterval);
+        }, 16);
 
-        overlayGame.style.visibility = 'visible';
-        overlayGame.style.opacity = '1';
+        menuTitle.innerText = 'SYSTEM FAILURE';
+        menuTitle.style.color = 'var(--accent)';
+        menuDesc.innerHTML = `Pesawat hancur. Anda bertahan dengan <strong>Score: ${score}</strong>.`;
+        startBtn.innerText = 'REBOOT SYSTEM';
+
+        menu.style.visibility = 'visible';
+        menu.style.opacity = '1';
       }
 
       startBtn.addEventListener('click', startGame);

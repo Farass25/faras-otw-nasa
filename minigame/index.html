@@ -1,0 +1,250 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>CYBER SURVIVOR: OMNI STRIKE</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Share+Tech+Mono&display=swap" rel="stylesheet" />
+  </head>
+  <body>
+    <div id="game-container">
+      <div id="menu-screen" class="ui-screen active">
+        <div class="menu-title-container">
+          <h1 class="game-title">CYBER<span>SURVIVOR</span></h1>
+          <p class="game-subtitle">CORE PROTOCOL v1.0.4</p>
+        </div>
+
+        <div class="menu-layout">
+          <div class="menu-navigation">
+            <button id="btn-play" class="menu-btn primary">INITIALIZE COMBAT</button>
+            <button id="btn-howtoplay" class="menu-btn">TACTICAL DATA (HOW TO PLAY)</button>
+            <button id="btn-settings" class="menu-btn">SYSTEM CONFIG (SETTINGS)</button>
+            <button id="btn-stats" class="menu-btn">CORE LOGS (STATISTICS)</button>
+            <button id="btn-fullscreen" class="menu-btn shadow-neon">TOGGLE FULLSCREEN</button>
+          </div>
+
+          <div class="menu-parameters">
+            <div class="param-group">
+              <label>OPERATIONAL DIFFICULTY</label>
+              <div class="selector-row" id="difficulty-selector">
+                <button class="selector-btn active" data-value="easy">EASY</button>
+                <button class="selector-btn" data-value="medium">MEDIUM</button>
+                <button class="selector-btn" data-value="hard">HARD</button>
+                <button class="selector-btn" data-value="nightmare">NIGHTMARE</button>
+              </div>
+            </div>
+
+            <div class="param-group">
+              <label>ENGAGEMENT MODE</label>
+              <div class="selector-row" id="mode-selector">
+                <button class="selector-btn active" data-value="survival">SURVIVAL</button>
+                <button class="selector-btn" data-value="endless">ENDLESS</button>
+                <button class="selector-btn" data-value="hardcore">HARDCORE</button>
+                <button class="selector-btn" data-value="bossrush">BOSS RUSH</button>
+              </div>
+            </div>
+
+            <div class="param-group">
+              <label>DEPLOYMENT ZONE (MAP)</label>
+              <div class="selector-row" id="map-selector">
+                <button class="selector-btn active" data-value="hangar">HANGAR</button>
+                <button class="selector-btn" data-value="spacestation">SPACE STN</button>
+                <button class="selector-btn" data-value="military">MILITARY</button>
+                <button class="selector-btn" data-value="desert">DESERT</button>
+                <button class="selector-btn" data-value="city">CITY</button>
+                <button class="selector-btn" data-value="random">RANDOM</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="howtoplay-screen" class="ui-screen hidden sub-menu">
+        <h2>TACTICAL ARCHIVE</h2>
+        <div class="scroll-content">
+          <h3>DESKTOP CONTROLS</h3>
+          <p><strong>W, A, S, D</strong> - Bergerak & Manufer Taktis</p>
+          <p><strong>SHIFT</strong> - Akselerasi Sprint (Memakan Stamina)</p>
+          <p><strong>MOUSE MOVEMENT</strong> - Bidik Target 360 Derajat</p>
+          <p><strong>LEFT CLICK</strong> - Melepaskan Tembakan Senjata</p>
+          <p><strong>R</strong> - Mengisi Ulang Magasin (Reload)</p>
+          <p><strong>1 - 6 / SCROLL</strong> - Mengganti Modul Senjata Aktif</p>
+          <p><strong>Q / E</strong> - Menggunakan Medkit Pemulihan Organik</p>
+          <br />
+          <h3>MOBILE CONTROLS</h3>
+          <p>Gunakan Virtual Joystick kiri untuk pergerakan fisik, dan tombol area kanan untuk menembak, reload, sprint, dan medkit secara cepat.</p>
+        </div>
+        <button class="menu-btn back-btn">RETURN TO MAIN TERMINAL</button>
+      </div>
+
+      <div id="settings-screen" class="ui-screen hidden sub-menu">
+        <h2>SYSTEM CONFIGURATION</h2>
+        <div class="settings-grid">
+          <div class="setting-item">
+            <label>MASTER VOLUME</label>
+            <input type="range" id="volume-master" min="0" max="100" value="80" />
+          </div>
+          <div class="setting-item">
+            <label>MUSIC STREAM AUDIO</label>
+            <input type="range" id="volume-music" min="0" max="100" value="60" />
+          </div>
+          <div class="setting-item">
+            <label>SFX CHANNELS</label>
+            <input type="range" id="volume-sfx" min="0" max="100" value="90" />
+          </div>
+          <div class="setting-item">
+            <label>DIAGNOSTIC VISUALS (FPS COUNTER)</label>
+            <input type="checkbox" id="setting-fps" checked />
+          </div>
+          <div class="setting-item">
+            <label>GRAPHICS QUALITY ENGINE</label>
+            <select id="setting-graphics">
+              <option value="low">LOW RENDERING ENGINE</option>
+              <option value="medium">MEDIUM RENDERING ENGINE</option>
+              <option value="high">HIGH PERFORMANCE ENGINE</option>
+              <option value="ultra" selected>ULTRA PARTICLE ENGINE (1000+ PARS)</option>
+            </select>
+          </div>
+        </div>
+        <button class="menu-btn back-btn">APPLY AND RETURN</button>
+      </div>
+
+      <div id="stats-screen" class="ui-screen hidden sub-menu">
+        <h2>CORE QUANTUM LOGS</h2>
+        <div class="stats-layout">
+          <div class="stats-box">
+            <h3>PERMANENT ANALYTICS</h3>
+            <p>Total Eliminasi Enemy: <span id="stat-total-kills">0</span></p>
+            <p>Total Kematian Unit: <span id="stat-total-deaths">0</span></p>
+            <p>Skor Tertinggi Berjalan: <span id="stat-high-score">0</span></p>
+            <p>Wave Tertinggi Tercapai: <span id="stat-high-wave">0</span></p>
+            <p>Durasi Bertahan Maksimal: <span id="stat-max-time">0s</span></p>
+            <p>Rasio Akurasi Tembakan: <span id="stat-accuracy">0%</span></p>
+          </div>
+          <div class="leaderboard-box">
+            <h3>LOCAL LEADERBOARD (TOP 10)</h3>
+            <table id="leaderboard-table">
+              <thead>
+                <tr>
+                  <th>RANK</th>
+                  <th>OPERATOR</th>
+                  <th>SCORE</th>
+                  <th>WAVE</th>
+                  <th>DATE</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </div>
+        <button class="menu-btn back-btn">CLOSE LOGS</button>
+      </div>
+
+      <div id="levelup-screen" class="ui-screen hidden modal">
+        <h2 class="neon-pulse">UPGRADE PROTOCOL INITIATED</h2>
+        <p>Pilih salah satu modifikasi modul tempur di bawah ini:</p>
+        <div id="upgrade-cards-container"></div>
+      </div>
+
+      <div id="hud-container" class="hidden">
+        <div class="hud-top-bar">
+          <div class="hud-panel wave-info">
+            <div class="label">CURRENT WAVE</div>
+            <div class="value" id="hud-wave">WAVE 01</div>
+            <div class="sub-value" id="hud-enemies-left">Enemies Left: 0</div>
+          </div>
+          <div class="hud-panel score-info">
+            <div class="label">TOTAL SCORE</div>
+            <div class="value" id="hud-score">00000000</div>
+            <div class="sub-value" id="hud-kills">Kills: 0</div>
+          </div>
+          <div class="hud-panel meta-info">
+            <div class="value" id="hud-difficulty-mode">SURVIVAL / EASY</div>
+            <div class="sub-value" id="hud-fps">FPS: 60</div>
+          </div>
+        </div>
+
+        <div id="boss-health-container" class="hidden">
+          <div class="boss-name" id="boss-name-label">BOSS INITIATED</div>
+          <div class="boss-bar-outer">
+            <div class="boss-bar-inner" id="boss-health-bar"></div>
+          </div>
+        </div>
+
+        <div class="hud-bottom-bar">
+          <div class="hud-vitals">
+            <div class="vital-row">
+              <span class="vital-lbl">HP</span>
+              <div class="bar-outer hp"><div id="bar-hp" class="bar-inner"></div></div>
+            </div>
+            <div class="vital-row">
+              <span class="vital-lbl">ARM</span>
+              <div class="bar-outer arm"><div id="bar-arm" class="bar-inner"></div></div>
+            </div>
+            <div class="vital-row">
+              <span class="vital-lbl">STM</span>
+              <div class="bar-outer stm"><div id="bar-stm" class="bar-inner"></div></div>
+            </div>
+            <div class="vital-row">
+              <span class="vital-lbl">EXP</span>
+              <div class="bar-outer exp"><div id="bar-exp" class="bar-inner"></div></div>
+            </div>
+            <div class="level-badge">LVL <span id="hud-level">1</span></div>
+          </div>
+
+          <div class="hud-weapon-system">
+            <div class="weapon-ammo-display">
+              <span id="hud-weapon-name">ASSAULT RIFLE</span>
+              <div class="ammo-numbers"><span id="hud-ammo-clip">30</span>/<span id="hud-ammo-reserve">300</span></div>
+            </div>
+            <div id="hud-reload-indicator" class="reload-ticker hidden">RELOADING CALIBRATION SYSTEM</div>
+          </div>
+        </div>
+
+        <div id="minimap-container">
+          <canvas id="minimapCanvas" width="150" height="150"></canvas>
+        </div>
+      </div>
+
+      <div id="gameover-screen" class="ui-screen hidden">
+        <h1 class="critical-alert">OPERATOR TERMINATED</h1>
+        <p class="subtitle">Mission analysis report generated below:</p>
+        <div class="gameover-summary">
+          <div class="summary-item">FINAL SCORE: <span id="go-score">0</span></div>
+          <div class="summary-item">TOTAL KILLS: <span id="go-kills">0</span></div>
+          <div class="summary-item">ACCURACY RECORD: <span id="go-accuracy">0%</span></div>
+          <div class="summary-item">WAVE TERMINATED: <span id="go-wave">0</span></div>
+          <div class="summary-item">SURVIVAL RUNTIME: <span id="go-time">0s</span></div>
+        </div>
+        <div class="input-leaderboard-container">
+          <label for="player-name-input">LOG OPERATOR NAME TO CORE QUANTUM DATA:</label>
+          <input type="text" id="player-name-input" maxlength="15" value="COMMANDER" />
+        </div>
+        <div class="gameover-controls">
+          <button id="btn-retry" class="menu-btn primary">REDEPLOY UNIT (RETRY)</button>
+          <button id="btn-abort" class="menu-btn">ABORT MISSION (MAIN MENU)</button>
+        </div>
+      </div>
+
+      <div id="mobile-controls-layer" class="hidden">
+        <div id="virtual-joystick-zone">
+          <div id="joystick-base"><div id="joystick-stick"></div></div>
+        </div>
+        <div id="virtual-action-buttons">
+          <button id="vbtn-shoot" class="v-action-btn action-main">FIRE</button>
+          <button id="vbtn-reload" class="v-action-btn">RELOAD</button>
+          <button id="vbtn-sprint" class="v-action-btn">SPRINT</button>
+          <button id="vbtn-medkit" class="v-action-btn">MEDKIT</button>
+          <button id="vbtn-weapon" class="v-action-btn">SWAP</button>
+        </div>
+      </div>
+
+      <canvas id="gameCanvas"></canvas>
+    </div>
+
+    <script src="game.js"></script>
+  </body>
+</html>
